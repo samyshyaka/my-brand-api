@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 
-const ProfileSchema = new mongoose.Schema({
+const QuerySchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -19,4 +19,4 @@ const ProfileSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Profile', profileSchema)
+module.exports = mongoose.model('Query', querySchema)

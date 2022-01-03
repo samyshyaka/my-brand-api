@@ -14,8 +14,10 @@ con.on('open', ()=>{
 app.use(express.json())
 
 const ArticleRouter = require('./routes/articles')
+const ProfileRouter = require('./routes/profiles')
 
 app.use('/Articles', ArticleRouter)
+app.use('/Profiles', ProfileRouter)
 
 app.listen(9000, ()=>{
     console.log('server started')

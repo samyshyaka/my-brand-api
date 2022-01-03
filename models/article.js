@@ -13,9 +13,8 @@ const articleSchema = new mongoose.Schema({
     },
 
     content: {
-        type: Boolean,
+        type: String,
         required: true,
-        default: false
     }
 })
 
