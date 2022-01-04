@@ -8,9 +8,9 @@ const Article = require("../models/article")
 router.get('/', async(req,res) => {
     try {
         const articles = await Article.find()
-        res.json(articles)
+        res.status(200).json(articles)
     }catch(err){
-        res.send('Error ' + err)
+        res.status(500).send('Error ' + err)
     }
 })
 
@@ -19,9 +19,9 @@ router.get('/', async(req,res) => {
 router.get('/:id', async(req,res) => {
     try {
         const articles = await Article.findById(req.params.id)
-        res.json(articles)
+        res.status(200).json(articles)
     }catch(err){
-        res.send('Error ' + err)
+        res.status(500).send('Error ' + err)
     }
 })
 
@@ -36,9 +36,9 @@ router.post('/', async(req, res) => {
 
     try{
         const a1 = await article.save()
-        res.json(a1)
+        res.status(201).json(a1)
     }catch(err){
-        res.send('error' + err)
+        res.status(500).send('error' + err)
     }
 })
 
@@ -51,9 +51,9 @@ router.patch("/:id", async(req, res)=> {
         article.author = req.body.author;
         article.content = req.body.content;
         const a1 = await article.save()
-        res.json(a1)
+        res.status(200).json(a1)
     }catch(err){
-        res.send('Error '+ err)
+        res.status(304).send('Error '+ err)
     }
 })
 
@@ -63,9 +63,9 @@ router.delete("/:id", async(req, res) => {
     try{
         const article = await Article.findById(req.params.id);
         const a1 = await article.remove()
-        res.json(a1)
+        res.status(200).json(a1)
     }catch(err){
-        res.send('error ' + err)
+        res.status(500).send('error ' + err)
     }
 })
 

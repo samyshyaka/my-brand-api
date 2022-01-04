@@ -8,9 +8,9 @@ const Profile = require("../models/profile")
 router.get('/', async(req,res) => {
     try {
         const profiles = await Profile.find()
-        res.json(profiles)
+        res.status(200).json(profiles)
     }catch(err){
-        res.send('Error ' + err)
+        res.status(500).send('Error ' + err)
     }
 })
 
@@ -19,9 +19,9 @@ router.get('/', async(req,res) => {
 router.get('/:id', async(req,res) => {
     try {
         const profiles = await Profile.findById(req.params.id)
-        res.json(profiles)
+        res.status(200).json(profiles)
     }catch(err){
-        res.send('Error ' + err)
+        res.status(500).send('Error ' + err)
     }
 })
 
@@ -36,9 +36,9 @@ router.post('/', async(req, res) => {
 
     try{
         const a1 = await profile.save()
-        res.json(a1)
+        res.status(201).json(a1)
     }catch(err){
-        res.send('error' + err)
+        res.status(500).send('error' + err)
     }
 })
 
@@ -51,9 +51,9 @@ router.patch("/:id", async(req, res)=> {
         profile.whatIDo = req.body.whatIDo;
         profile.email = req.body.email;
         const a1 = await profile.save()
-        res.json(a1)
+        res.status(200).json(a1)
     }catch(err){
-        res.send('Error '+ err)
+        res.status(304).send('Error '+ err)
     }
 })
 
@@ -63,9 +63,9 @@ router.delete("/:id", async(req, res) => {
     try{
         const profile = await Profile.findById(req.params.id);
         const a1 = await profile.remove()
-        res.json(a1)
+        res.status(200).json(a1)
     }catch(err){
-        res.send('error ' + err)
+        res.status(500).send('error ' + err)
     }
 })
 

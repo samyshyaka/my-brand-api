@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 
-const ProfileSchema = new mongoose.Schema({
+const profileSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
