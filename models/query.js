@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 
-const QuerySchema = new mongoose.Schema({
+const querySchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -19,4 +19,4 @@ const QuerySchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Query', querySchema)
+export default mongoose.model('Query', querySchema)

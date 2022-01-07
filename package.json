@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon app.js"
   },
   "author": "samuel shyaka dus",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.2.2",
     "mongoose": "^6.1.2"
   },

@@ -1,11 +1,11 @@
-const express = require("express");
-const { addListener } = require("../models/article");
+import express from 'express';
 const router = express.Router()
-const Article = require("../models/article")
+import Article from '../models/article.js'
+import { authenticateToken } from './login.js'
 
 //Get Method
 
-router.get('/', async(req,res) => {
+router.get('/', authenticateToken, async(req,res) => {
     try {
         const articles = await Article.find()
         res.status(200).json(articles)
@@ -16,7 +16,7 @@ router.get('/', async(req,res) => {
 
 //Get Method - Display one single object
 
-router.get('/:id', async(req,res) => {
+router.get('/:id', authenticateToken, async(req,res) => {
     try {
         const articles = await Article.findById(req.params.id)
         res.status(200).json(articles)
@@ -27,7 +27,7 @@ router.get('/:id', async(req,res) => {
 
 //Post Method
 
-router.post('/', async(req, res) => {
+router.post('/', authenticateToken, async(req, res) => {
     const article = new Article({
         title: req.body.title,
         author: req.body.author,
@@ -44,7 +44,7 @@ router.post('/', async(req, res) => {
 
 //Patch Method
 
-router.patch("/:id", async(req, res)=> {
+router.patch("/:id", authenticateToken, async(req, res)=> {
     try{
         const article = await Article.findById(req.params.id);
         article.title = req.body.title;
@@ -59,7 +59,7 @@ router.patch("/:id", async(req, res)=> {
 
 // Delete Method
 
-router.delete("/:id", async(req, res) => {
+router.delete("/:id", authenticateToken, async(req, res) => {
     try{
         const article = await Article.findById(req.params.id);
         const a1 = await article.remove()
@@ -69,4 +69,4 @@ router.delete("/:id", async(req, res) => {
     }
 })
 
-module.exports = router
+export default router;

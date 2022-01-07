@@ -1,11 +1,11 @@
-const express = require("express");
-const { addListener } = require("../models/profile");
+import express from 'express';
 const router = express.Router()
-const Profile = require("../models/profile")
+import Profile from '../models/profile.js';
+import { authenticateToken } from './login.js'
 
 //Get Method
 
-router.get('/', async(req,res) => {
+router.get('/', authenticateToken, async(req,res) => {
     try {
         const profiles = await Profile.find()
         res.status(200).json(profiles)
@@ -16,7 +16,7 @@ router.get('/', async(req,res) => {
 
 //Get Method - Display one single object
 
-router.get('/:id', async(req,res) => {
+router.get('/:id', authenticateToken, async(req,res) => {
     try {
         const profiles = await Profile.findById(req.params.id)
         res.status(200).json(profiles)
@@ -27,7 +27,7 @@ router.get('/:id', async(req,res) => {
 
 //Post Method
 
-router.post('/', async(req, res) => {
+router.post('/', authenticateToken, async(req, res) => {
     const profile = new Profile({
         name: req.body.name,
         whatIDo: req.body.whatIDo,
@@ -35,8 +35,8 @@ router.post('/', async(req, res) => {
     })
 
     try{
-        const a1 = await profile.save()
-        res.status(201).json(a1)
+        const p1 = await profile.save()
+        res.status(201).json(p1)
     }catch(err){
         res.status(500).send('error' + err)
     }
@@ -44,14 +44,14 @@ router.post('/', async(req, res) => {
 
 //Patch Method
 
-router.patch("/:id", async(req, res)=> {
+router.patch("/:id", authenticateToken, async(req, res)=> {
     try{
         const profile = await Profile.findById(req.params.id);
         profile.name = req.body.name;
         profile.whatIDo = req.body.whatIDo;
         profile.email = req.body.email;
-        const a1 = await profile.save()
-        res.status(200).json(a1)
+        const p1 = await profile.save()
+        res.status(200).json(p1)
     }catch(err){
         res.status(304).send('Error '+ err)
     }
@@ -59,14 +59,14 @@ router.patch("/:id", async(req, res)=> {
 
 // Delete Method
 
-router.delete("/:id", async(req, res) => {
+router.delete("/:id", authenticateToken, async(req, res) => {
     try{
         const profile = await Profile.findById(req.params.id);
-        const a1 = await profile.remove()
-        res.status(200).json(a1)
+        const p1 = await profile.remove()
+        res.status(200).json(p1)
     }catch(err){
         res.status(500).send('error ' + err)
     }
 })
 
-module.exports = router
+export default router

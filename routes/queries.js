@@ -1,11 +1,11 @@
-const express = require("express");
-const { addListener } = require("../models/profile");
+import express from 'express';
 const router = express.Router()
-const Profile = require("../models/profile")
+import Query from '../models/query.js';
+import { authenticateToken } from './login.js'
 
 //Get Method
 
-router.get('/', async(req,res) => {
+router.get('/', authenticateToken, async(req,res) => {
     try {
         const profiles = await Profile.find()
         res.status(200).json(profiles)
@@ -16,7 +16,7 @@ router.get('/', async(req,res) => {
 
 //Get Method - Display one single object
 
-router.get('/:id', async(req,res) => {
+router.get('/:id', authenticateToken, async(req,res) => {
     try {
         const profiles = await Profile.findById(req.params.id)
         res.status(200).json(profiles)
@@ -29,14 +29,14 @@ router.get('/:id', async(req,res) => {
 
 // Delete Method
 
-router.delete("/:id", async(req, res) => {
+router.delete("/:id", authenticateToken, async(req, res) => {
     try{
         const profile = await Profile.findById(req.params.id);
-        const a1 = await profile.remove()
-        res.status(200).json(a1)
+        const q1 = await profile.remove()
+        res.status(200).json(q1)
     }catch(err){
         res.status(500).send('error ' + err)
     }
 })
 
-module.exports = router
+export default router
