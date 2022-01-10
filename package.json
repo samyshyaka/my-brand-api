@@ -1,11 +1,11 @@
 {
-  "name": "crudejs",
+  "name": "my-brand-api",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon --exec babel-node app.js"
   },
   "author": "samuel shyaka dus",
   "license": "ISC",
@@ -18,6 +18,9 @@
     "mongoose": "^6.1.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.7",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
     "nodemon": "^2.0.15"
   }
 }
