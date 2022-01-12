@@ -10,23 +10,23 @@ import {
 
 const router = express.Router()
 
-//Get Method
+//Get Articles
 
 router.get('/', getArticlesHandler)
 
-//Get Method - Display one single object
+//Get Specific Article
 
 router.get('/:id', getSpecificArticleHandler)
 
-//Post Method
+//Post Article
 
 router.post('/', authenticateToken, postArticleHandler)
 
-//Patch Method
+//Patch Article
 
 router.patch("/:id", authenticateToken, patchArticleHandler)
 
-// Delete Method
+// Delete Article
 
 router.delete("/:id", authenticateToken, deleteArticleHandler)
 

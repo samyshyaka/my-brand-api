@@ -5,7 +5,6 @@ import index from './routes/index.js';
 const url = "mongodb://localhost/ArticlesDBex";
 
 const app = express();
-app.use(express.json());
 
 mongoose.connect(url);
 const con = mongoose.connection;
@@ -23,3 +22,5 @@ con.on("error", err => {
 })
 
 app.use("/", index);
+
+export default con

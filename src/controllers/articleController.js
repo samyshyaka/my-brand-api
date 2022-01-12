@@ -1,3 +1,4 @@
+
 import Article from '../models/article.js'
 
 const getArticlesHandler = async(req,res) => {
