@@ -11,8 +11,11 @@ const getArticlesHandler = async(req,res) => {
 
 const getSpecificArticleHandler = async(req,res) => {
     try {
-        const articles = await Article.findById(req.params.id)
-        res.status(200).json(articles)
+        const article = await Article.findById(req.params.id)
+        if (article == null) {
+            return res.status(404).send("Article not found")
+        }
+        res.status(200).json(article)
     }catch(err){
         res.status(500).send('Error ' + err)
     }
@@ -50,7 +53,7 @@ const deleteArticleHandler = async(req, res) => {
     try{
         const article = await Article.findById(req.params.id);
         const a1 = await article.remove()
-        res.status(200).json(a1)
+        res.status(200).send("Article Deleted")
     }catch(err){
         res.status(500).send('error ' + err)
     }
@@ -61,4 +64,4 @@ export { getArticlesHandler,
     postArticleHandler,
     patchArticleHandler,
     deleteArticleHandler
-    }
+}

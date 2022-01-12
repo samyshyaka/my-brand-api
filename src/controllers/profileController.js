@@ -50,7 +50,7 @@ const deleteProfileHandler = async(req, res) => {
     try{
         const profile = await Profile.findById(req.params.id);
         const p1 = await profile.remove()
-        res.status(200).json(p1)
+        res.status(200).send("Article Deleted")
     }catch(err){
         res.status(500).send('error ' + err)
     }

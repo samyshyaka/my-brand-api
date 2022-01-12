@@ -12,11 +12,11 @@ const router = express.Router()
 
 //Get Method
 
-router.get('/', authenticateToken, getArticlesHandler)
+router.get('/', getArticlesHandler)
 
 //Get Method - Display one single object
 
-router.get('/:id', authenticateToken, getSpecificArticleHandler)
+router.get('/:id', getSpecificArticleHandler)
 
 //Post Method
 

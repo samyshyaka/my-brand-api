@@ -11,11 +11,11 @@ import {
 
 //Get Method
 
-router.get('/', authenticateToken, getProfilesHandler)
+router.get('/', getProfilesHandler)
 
 //Get Method - Display one single object
 
-router.get('/:id', authenticateToken, getSpecificProfilesHandler)
+router.get('/:id', getSpecificProfilesHandler)
 
 //Post Method
 

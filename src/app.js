@@ -5,6 +5,7 @@ import index from './routes/index.js';
 const url = "mongodb://localhost/ArticlesDBex";
 
 const app = express();
+app.use(express.json());
 
 mongoose.connect(url);
 const con = mongoose.connection;
@@ -22,26 +23,3 @@ con.on("error", err => {
 })
 
 app.use("/", index);
-
-const add = (a = 0 ,b = 0) => {
-  
-  if(typeof a !== 'number' || typeof b !== 'number'){
-    return 0
-  }
-
-  return a + b;
-}
-
-const sub = (a = 0 ,b = 0) => {
-  
-  if(typeof a !== 'number' || typeof b !== 'number'){
-    return 0
-  }
-
-  return a - b;
-}
-
-export { 
-  add,
-  sub 
-};

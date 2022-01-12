@@ -1,5 +1,5 @@
-import express from 'express';
 import bcrypt from 'bcrypt';
+
 import User from '../models/user.js';
 
 const getUsersHandler = async(req,res) => {
@@ -14,19 +14,19 @@ const getUsersHandler = async(req,res) => {
 const postUserHandler = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    const user = new User({
+    const newUser = new User({
         name: req.body.name,
         password: hashedPassword
     })
-try{       
 
-    const u1 = await user.save()
+    try{
+    const u1 = await newUser.save()
     res.status(201).send(u1)
-}
+    }
 
-catch(err) {
+    catch(err) {
     res.status(500).send(''+err)
-}
+    }
 
 }
 

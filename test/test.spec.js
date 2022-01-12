@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { expect } from 'chai';
-import { add, sub } from '../src/app.js';
+import { add, sub } from '../src/test.js';
 
 describe('the add function', () => {
     it('it should add 2 numbers together', () => {

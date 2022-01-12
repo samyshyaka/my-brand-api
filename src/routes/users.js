@@ -1,12 +1,16 @@
 import express from 'express';
-const router = express.Router();
+
+import { authenticateToken } from '../middleware/verifyJWT.js'
+import { usersErrorHandler } from '../middleware/errorHandlers.js';
 import { 
     getUsersHandler,
     postUserHandler
 } from '../controllers/usersController.js'
 
-router.get('/', getUsersHandler)
+const router = express.Router();
 
-router.post('/', postUserHandler)
+router.get('/', authenticateToken, getUsersHandler)
+
+router.post('/', usersErrorHandler, postUserHandler)
 
 export default router
