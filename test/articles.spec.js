@@ -1,33 +1,21 @@
-import chai, { expect } from 'chai';
+import chai from 'chai';
 import chaiHttp from 'chai-http';
-import { assert } from 'chai';
-import { 
-    getArticlesHandler, 
-    getSpecificArticleHandler,
-    postArticleHandler,
-    patchArticleHandler,
-    deleteArticleHandler 
-    } from '../src/controllers/articleController.js'
+import server from '../src/app.js'
 
 chai.use(chaiHttp);
+chai.should();
 
 describe('Get Articles', () => {
     it('it should display all the articles', (done) => {
-        getArticlesHandler().then(result => {
-            expect(result).to.be.a('array');
-            expect(result).to.have.status(200);
-            done();
-        })
-    });
-});
+        chai.request(server)
+            .get('/articles')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('array')
+                res.body.length.should.be.eql(3);
+                done();
+            })
+    })
+})
 
-describe('Get Specific Article', () => {
-    it('it should the requested article', (done) => {
-        getSpecificArticleHandler().then(result => {
-            expect(result).to.be.a('object');
-            expect(result).to.have.status(200);
-            done();
-        })
-    });
-});
 
