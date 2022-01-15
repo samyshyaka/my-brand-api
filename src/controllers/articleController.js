@@ -60,7 +60,7 @@ const postArticleHandler = async(req, res) => {
             status : "success",
             code: 201,
             data : {
-                "post" : a1
+                "article" : a1
              }
         })
     }catch(err){
