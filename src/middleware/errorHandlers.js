@@ -8,7 +8,11 @@ const authErrorHandler = async (req, res, next) => {
     const users = await User.find()
     const user = users.find(user => user.name == req.body.name)
     if(user == null){
-        return res.status(400).send('Cannot find user')
+        return res.status(404).send({
+            status : "fail",
+            code: 404,
+            message : "User not found"
+        })
     }
     next()
 }
@@ -17,7 +21,11 @@ const usersErrorHandler = async (req, res, next) => {
     const users = await User.find()
     const user = users.find(user => user.name == req.body.name)
     if(user != null){
-        return res.status(409).send('User already exists')
+        return res.status(409).send({
+            status : "fail",
+            code: 409,
+            message : "User already exists"
+        })
     }
     next()
 }

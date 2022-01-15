@@ -5,7 +5,7 @@ import {
     getProfilesHandler,
     getSpecificProfilesHandler,
     postProfileHandler,
-    patchProfileHandler,
+    putProfileHandler,
     deleteProfileHandler
 } from '../controllers/profileController.js'
 
@@ -21,9 +21,9 @@ router.get('/:id', getSpecificProfilesHandler)
 
 router.post('/', authenticateToken, postProfileHandler)
 
-//Patch Method
+//Edit Method
 
-router.patch("/:id", authenticateToken, patchProfileHandler)
+router.put("/:id", authenticateToken, putProfileHandler)
 
 // Delete Method
 

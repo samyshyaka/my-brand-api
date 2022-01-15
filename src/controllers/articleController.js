@@ -1,12 +1,23 @@
-
 import Article from '../models/article.js'
 
 const getArticlesHandler = async(req,res) => {
     try {
         const articles = await Article.find()
-        res.status(200).json(articles)
+        res.status(200).json(
+            {
+                status : "success",
+                code: 200,
+                data : {
+                    "articles" : articles
+                 }
+            }
+        )
     }catch(err){
-        res.status(500).send('Error ' + err)
+        res.status(500).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
     }
 }
 
@@ -14,11 +25,25 @@ const getSpecificArticleHandler = async(req,res) => {
     try {
         const article = await Article.findById(req.params.id)
         if (article == null) {
-            return res.status(404).send("Article not found")
+            res.status(404).send({
+                status : "fail",
+                code: 404,
+                message : "article not found"
+            })
         }
-        res.status(200).json(article)
+        res.status(200).json({
+            status : "success",
+            code: 200,
+            data : {
+                "article" : article
+             }
+        })
     }catch(err){
-        res.status(500).send('Error ' + err)
+        res.status(500).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
     }
 }
 
@@ -31,38 +56,83 @@ const postArticleHandler = async(req, res) => {
 
     try{
         const a1 = await article.save()
-        res.status(201).json(a1)
+        res.status(201).json({
+            status : "success",
+            code: 201,
+            data : {
+                "post" : a1
+             }
+        })
     }catch(err){
-        res.status(500).send('error' + err)
+        res.status(500).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
     }
 }
 
-const patchArticleHandler = async(req, res) => {
+const putArticleHandler = async(req, res) => {
     try{
         const article = await Article.findById(req.params.id);
-        article.title = req.body.title;
-        article.author = req.body.author;
+        if (article == null) {
+            res.status(404).send({
+                status : "fail",
+                code: 404,
+                message : "article not found"
+            })
+        }
+        if(req.body.title){
+            article.title = req.body.title;
+        } else if (req.body.author){
+            article.author = req.body.author;
+        }        
         article.content = req.body.content;
         const a1 = await article.save()
-        res.status(200).json(a1)
+        res.status(200).json({
+            status : "success",
+            code: 200,
+            data : {
+                "article" : a1
+             }
+        })
     }catch(err){
-        res.status(304).send('Error '+ err)
+        res.status(304).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
     }
 }
 
 const deleteArticleHandler = async(req, res) => {
     try{
         const article = await Article.findById(req.params.id);
+        if (article == null) {
+            res.status(404).send({
+                status : "fail",
+                code: 404,
+                message : "Article not found"
+            })
+        }
         const a1 = await article.remove()
-        res.status(200).send("Article Deleted")
+        res.status(200).send({
+            status : "success",
+            code: 200,
+            message : "Article deleted"
+        })
     }catch(err){
-        res.status(500).send('error ' + err)
+        res.status(500).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
     }
 }
 
 export { getArticlesHandler, 
     getSpecificArticleHandler,
     postArticleHandler,
-    patchArticleHandler,
+    putArticleHandler,
     deleteArticleHandler
 }

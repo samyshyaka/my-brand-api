@@ -12,6 +12,9 @@ const getProfilesHandler = async(req,res) => {
 const getSpecificProfilesHandler = async(req,res) => {
     try {
         const profiles = await Profile.findById(req.params.id)
+        if (profile == null) {
+            res.status(404).send("Profile not found")
+        }
         res.status(200).json(profiles)
     }catch(err){
         res.status(500).send('Error ' + err)
@@ -33,11 +36,17 @@ const postProfileHandler = async(req, res) => {
     }
 }
 
-const patchProfileHandler = async(req, res)=> {
+const putProfileHandler = async(req, res)=> {
     try{
         const profile = await Profile.findById(req.params.id);
-        profile.name = req.body.name;
-        profile.whatIDo = req.body.whatIDo;
+        if (profile == null) {
+            res.status(404).send("Profile not found")
+        }
+        if(req.body.name){
+            profile.name = req.body.name;
+        } else if(req.body.whatIDo){
+            profile.whatIDo = req.body.whatIDo;
+        }
         profile.email = req.body.email;
         const p1 = await profile.save()
         res.status(200).json(p1)
@@ -49,8 +58,11 @@ const patchProfileHandler = async(req, res)=> {
 const deleteProfileHandler = async(req, res) => {
     try{
         const profile = await Profile.findById(req.params.id);
+        if (profile == null) {
+            res.status(404).send("Profile not found")
+        }
         const p1 = await profile.remove()
-        res.status(200).send("Article Deleted")
+        res.status(200).send("Profile Deleted")
     }catch(err){
         res.status(500).send('error ' + err)
     }
@@ -60,6 +72,6 @@ export {
     getProfilesHandler,
     getSpecificProfilesHandler,
     postProfileHandler,
-    patchProfileHandler,
+    putProfileHandler,
     deleteProfileHandler
 }

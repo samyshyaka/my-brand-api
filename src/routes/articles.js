@@ -4,7 +4,7 @@ import {
     getArticlesHandler, 
     getSpecificArticleHandler,
     postArticleHandler,
-    patchArticleHandler,
+    putArticleHandler,
     deleteArticleHandler 
     } from '../controllers/articleController.js'
 
@@ -22,9 +22,9 @@ router.get('/:id', getSpecificArticleHandler)
 
 router.post('/', authenticateToken, postArticleHandler)
 
-//Patch Article
+//Edit Article
 
-router.patch("/:id", authenticateToken, patchArticleHandler)
+router.put("/:id", authenticateToken, putArticleHandler)
 
 // Delete Article
 
