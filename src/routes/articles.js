@@ -1,24 +1,3 @@
-/**
- * @swagger
- * components:
- *   schemas:
- *     Article:
- *       type: object
- *       properties:
- *         title:
- *           type: string
- *           description: The article's title.
- *           example: Benefits of programming
- *         author:
- *           type: string
- *           description: Author of the article.
- *           example: Sam
- *         content:
- *           type: string
- *           description: Content of the article.
- *           example: Programming improves critical thinking.
- */
-
 import express from 'express';
 import { authenticateToken } from '../middleware/verifyJWT.js'
 import { 
@@ -31,30 +10,11 @@ import {
 
 const router = express.Router()
 
-//Get Method
-
-/**
- * @swagger
- * /articles:
- *   get:
- *     description: Retrieve a list of Articles. * 
- *     responses:
- *       200:
- *         description: A list of articles.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 data:
- *                   type: array
- *                   items:
- *                     $ref: '#/components/schemas/Article'
- */
+//Get Articles
 
 router.get('/', getArticlesHandler)
 
-//Get a single object
+//Get a single article
 
 /**
  * @swagger

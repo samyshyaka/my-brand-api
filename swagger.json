@@ -1,0 +1,152 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "My Brand API",
+      "description": "Personal Portfolio"
+    },
+    "host": "localhost:9000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Articles"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/articles": {
+          "get": {
+            "tags": ["Articles"],
+            "summary": "Get a list of all articles",
+            "description": "Get a list of all articles",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Article"
+                }
+              }
+            }
+          },
+
+          "post": {
+            "tags": ["Articles"],
+            "summary": "Create new article",
+            "description": "Create new article in system",
+            "parameters": [
+              {
+                "name": "Article",
+                "in": "body",
+                "description": "Article that we want to create",
+                "schema": {
+                  "$ref": "#/definitions/Article"
+                }
+              }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+              "201": {
+                "description": "New article is created",
+                "schema": {
+                  "$ref": "#/definitions/Article"
+                }
+              }
+            }
+          }
+        },
+        
+        "/articles/{id}": {
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "description": "ID of the article that we want to find",
+                "type": "string"
+              }
+            ],
+            "get": {
+                "summary": "Get article with the given ID",
+                "description": "Get article with the given ID",
+                "tags": ["Articles"],
+                "responses": {
+                  "200": {
+                    "description": "Article is deleted",
+                    "schema": {
+                      "$ref": "#/definitions/Article"
+                    }
+                  }
+                }
+              },
+            "put": {
+                "summary": "Update article with the given ID",
+                "description": "Update article with the given ID",
+                "tags": ["Articles"],
+                "parameters": [
+                  {
+                    "name": "article",
+                    "in": "body",
+                    "description": "Article with new values of properties",
+                    "schema": {
+                      "$ref": "#/definitions/updateArticle"
+                    }
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "Article is updated",
+                    "schema": {
+                      "$ref": "#/definitions/Article"
+                    }
+                  }
+                }
+              },
+              "delete": {
+                "summary": "Delete article with the given ID",
+                "description": "Delete article with the given ID",
+                "tags": ["Articles"],
+                "responses": {
+                  "200": {
+                    "description": "Article is deleted",
+                    "schema": {
+                      "$ref": "#/definitions/Article"
+                    }
+                  }
+                }
+              }
+          }
+      },
+      "definitions": {
+        "Article": {
+          "required": ["title", "author", "content"],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "author": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "updateArticle": {
+            "required": ["title", "author", "content"],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "author": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+    }
+}
+  
