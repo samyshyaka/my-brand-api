@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "type": "module",
   "engines": {
-    "node": "8.1.2"
+    "node": "16.13.1"
   },
   "scripts": {
     "start": "nodemon --exec babel-node app.js",
