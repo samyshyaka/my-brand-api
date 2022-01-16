@@ -1,0 +1,486 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "My Brand API",
+      "description": "Personal Portfolio"
+    },
+    "host": "localhost:9000",
+    "basePath": "/api/v1",
+    "tags": [
+      {
+        "name": "Articles"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/articles": {
+          "get": {
+            "tags": ["Articles"],
+            "summary": "Get a list of all articles",
+            "description": "Get a list of all articles",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Article"
+                }
+              }
+            }
+          },
+
+          "post": {
+            "tags": ["Articles"],
+            "summary": "Create new article",
+            "description": "Create new article in system",
+            "security": [
+              {
+                 "Bearer": []
+              }
+            ],
+            "parameters": [
+              
+              {
+                "name": "Article",
+                "in": "body",
+                "description": "Article that we want to create",
+                "schema": {
+                  "$ref": "#/definitions/Article"
+                }
+              }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+              "201": {
+                "description": "New article is created",
+                "schema": {
+                  "$ref": "#/definitions/Article"
+                }
+              }
+            }
+          }
+        },
+        
+        "/articles/{id}": {
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "description": "ID of the article that we want to find",
+                "type": "string"
+              }
+            ],
+            "get": {
+                "summary": "Get article with the given ID",
+                "description": "Get article with the given ID",
+                "tags": ["Articles"],
+                "responses": {
+                  "200": {
+                    "description": "Article is retrieved",
+                    "schema": {
+                      "$ref": "#/definitions/Article"
+                    }
+                  }
+                }
+              },
+            "put": {
+                "summary": "Update article with the given ID",
+                "description": "Update article with the given ID",
+                "security": [
+                  {
+                     "Bearer": []
+                  }
+                ],
+                "tags": ["Articles"],
+                "parameters": [
+                  {
+                    "name": "article",
+                    "in": "body",
+                    "description": "Article with new values of properties",
+                    "schema": {
+                      "$ref": "#/definitions/updateArticle"
+                    }
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "Article is updated",
+                    "schema": {
+                      "$ref": "#/definitions/Article"
+                    }
+                  }
+                }
+              },
+              "delete": {
+                "summary": "Delete article with the given ID",
+                "description": "Delete article with the given ID",
+                "security": [
+                  {
+                     "Bearer": []
+                  }
+                ],
+                "tags": ["Articles"],
+                "responses": {
+                  "200": {
+                    "description": "Article is deleted",
+                    "schema": {
+                      "$ref": "#/definitions/Article"
+                    }
+                  }
+                }
+              }
+          },
+          "/profiles": {
+            "get": {
+              "tags": ["Profiles"],
+              "summary": "Get a list of all profiles",
+              "description": "Get a list of all profiles",
+              "responses": {
+                "200": {
+                  "description": "OK",
+                  "schema": {
+                    "$ref": "#/definitions/Profile"
+                  }
+                }
+              }
+            },
+  
+            "post": {
+              "tags": ["Profiles"],
+              "summary": "Create new profile",
+              "description": "Create new profile in system",
+              "security": [
+                {
+                   "Bearer": []
+                }
+              ],
+              "parameters": [
+                
+                {
+                  "name": "Profile",
+                  "in": "body",
+                  "description": "Profile that we want to create",
+                  "schema": {
+                    "$ref": "#/definitions/Profile"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "201": {
+                  "description": "New profile is created",
+                  "schema": {
+                    "$ref": "#/definitions/Profile"
+                  }
+                }
+              }
+            }
+          },
+          
+          "/profiles/{id}": {
+              "parameters": [
+                {
+                  "name": "id",
+                  "in": "path",
+                  "required": true,
+                  "description": "ID of the profile that we want to find",
+                  "type": "string"
+                }
+              ],
+              "get": {
+                  "summary": "Get profile with the given ID",
+                  "description": "Get profile with the given ID",
+                  "tags": ["Profiles"],
+                  "responses": {
+                    "200": {
+                      "description": "Profile is retrieved",
+                      "schema": {
+                        "$ref": "#/definitions/Profile"
+                      }
+                    }
+                  }
+                },
+              "put": {
+                  "summary": "Update profile with the given ID",
+                  "description": "Update profile with the given ID",
+                  "security": [
+                    {
+                       "Bearer": []
+                    }
+                  ],
+                  "tags": ["Profiles"],
+                  "parameters": [
+                    {
+                      "name": "profile",
+                      "in": "body",
+                      "description": "Profile with new values of properties",
+                      "schema": {
+                        "$ref": "#/definitions/updateProfile"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "Article is updated",
+                      "schema": {
+                        "$ref": "#/definitions/Profile"
+                      }
+                    }
+                  }
+                },
+                "delete": {
+                  "summary": "Delete profile with the given ID",
+                  "description": "Delete profile with the given ID",
+                  "security": [
+                    {
+                       "Bearer": []
+                    }
+                  ],
+                  "tags": ["Profiles"],
+                  "responses": {
+                    "200": {
+                      "description": "Profile is deleted",
+                      "schema": {
+                        "$ref": "#/definitions/Profile"
+                      }
+                    }
+                  }
+                }
+            },
+            "/queries": {
+              "get": {
+                "tags": ["Queries"],
+                "summary": "Get a list of all queries",
+                "description": "Get a list of all queries",
+                "responses": {
+                  "200": {
+                    "description": "OK",
+                    "schema": {
+                      "$ref": "#/definitions/Query"
+                    }
+                  }
+                }
+              },
+    
+              "post": {
+                "tags": ["Queries"],
+                "summary": "Create new query",
+                "description": "Create new query in system",
+                "security": [
+                  {
+                     "Bearer": []
+                  }
+                ],
+                "parameters": [
+                  
+                  {
+                    "name": "Query",
+                    "in": "body",
+                    "description": "Query that we want to create",
+                    "schema": {
+                      "$ref": "#/definitions/Query"
+                    }
+                  }
+                ],
+                "produces": ["application/json"],
+                "responses": {
+                  "201": {
+                    "description": "New query is created",
+                    "schema": {
+                      "$ref": "#/definitions/Query"
+                    }
+                  }
+                }
+              }
+            },
+            
+            "/queries/{id}": {
+                "parameters": [
+                  {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of the query that we want to find",
+                    "type": "string"
+                  }
+                ],
+                "get": {
+                    "summary": "Get query with the given ID",
+                    "description": "Get query with the given ID",
+                    "tags": ["Queries"],
+                    "responses": {
+                      "200": {
+                        "description": "Querry is retrieved",
+                        "schema": {
+                          "$ref": "#/definitions/Query"
+                        }
+                      }
+                    }
+                  },                
+                  "delete": {
+                    "summary": "Delete query with the given ID",
+                    "description": "Delete query with the given ID",
+                    "security": [
+                      {
+                         "Bearer": []
+                      }
+                    ],
+                    "tags": ["Queries"],
+                    "responses": {
+                      "200": {
+                        "description": "Query is deleted",
+                        "schema": {
+                          "$ref": "#/definitions/Query"
+                        }
+                      }
+                    }
+                  }
+              },
+            "/users": {                  
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "Register new user",
+                  "description": "Register new user",
+                  "parameters": [                    
+                    {
+                      "name": "User",
+                      "in": "body",
+                      "description": "User that we want to register",
+                      "schema": {
+                        "$ref": "#/definitions/User"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "201": {
+                      "description": "New user is registered",
+                      "schema": {
+                        "$ref": "#/definitions/User"
+                      }
+                    }
+                  }
+                }
+            },    
+          "/login": {
+            "post": {
+              "tags": ["Login"],
+              "summary": "Authenticate user",
+              "description": "Authenticate user",
+              "parameters": [
+                {
+                  "name": "User",
+                  "in": "body",
+                  "description": "User credentials",
+                  "schema": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "description": "User is authenticated"
+                }
+              }
+            }
+          }
+      },
+
+      "securityDefinitions": {
+        "Bearer": {
+          "type": "apiKey",
+          "name": "Authorization",
+          "in":"header",
+          "description": "Enter you bearer token"
+        }
+      },
+      "definitions": {
+        "Article": {
+          "required": ["title", "author", "content"],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "author": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "updateArticle": {
+            "required": ["title", "author", "content"],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "author": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+        },
+        "Profile": {
+          "required": ["title", "author", "content"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "whatIDo": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "updateProfile": {
+            "required": ["title", "author", "content"],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "whatIDo": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            }
+        },
+        "Query": {
+          "required": ["title", "author", "content"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        },
+        "User": {
+          "required": ["name", "password"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          }
+        }
+        
+    }
+}
+  

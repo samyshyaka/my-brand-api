@@ -14,9 +14,9 @@ const authenticateToken = (req, res, next) => {
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if(err) return res.status(401).send({
-            status : "fail",
+            status : "error",
             code: 401,
-            message : "Unauthorized"
+            message : err
         })
         req.user = user
         next()

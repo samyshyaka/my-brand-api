@@ -18,6 +18,31 @@ const getSpecificQueryHandler = async(req,res) => {
     }
 }
 
+const postQueryHandler = async(req, res) => {
+    const query = new Query({
+        title: req.body.title,
+        author: req.body.author,
+        content: req.body.content
+    })
+
+    try{
+        const q1 = await query.save()
+        res.status(201).json({
+            status : "success",
+            code: 201,
+            data : {
+                "query" : q1
+             }
+        })
+    }catch(err){
+        res.status(500).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
+    }
+}
+
 const deleteQuerry = async(req, res) => {
     try{
         const profile = await Query.findById(req.params.id);
@@ -31,5 +56,6 @@ const deleteQuerry = async(req, res) => {
 export { 
     getQueryHandler,
     getSpecificQueryHandler,
+    postQueryHandler,
     deleteQuerry
 }

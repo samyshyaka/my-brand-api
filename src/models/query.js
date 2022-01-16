@@ -2,17 +2,17 @@ import mongoose from 'mongoose';
 
 
 const querySchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
         required: true
     },
 
-    author: {
+    email: {
         type: String,
         required: true
     },
 
-    content: {
+    message: {
         type: Boolean,
         required: true,
         default: false

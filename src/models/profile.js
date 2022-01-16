@@ -2,20 +2,19 @@ import mongoose from 'mongoose';
 
 
 const profileSchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
         required: true
     },
 
-    author: {
+    whatIDo: {
         type: String,
         required: true
     },
 
-    content: {
+    email: {
         type: Boolean,
         required: true,
-        default: false
     }
 })
 

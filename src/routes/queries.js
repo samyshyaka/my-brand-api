@@ -4,18 +4,23 @@ import { authenticateToken } from '../middleware/verifyJWT.js'
 import { 
     getQueryHandler,
     getSpecificQueryHandler,
+    postQueryHandler,
     deleteQuerry
  } from '../controllers/queriesController.js'
 
-//Get Method
+//Get a list of all Queries
 
 router.get('/', authenticateToken, getQueryHandler)
 
-//Get Method - Display one single object
+//Get one single query
 
 router.get('/:id', authenticateToken, getSpecificQueryHandler)
 
-// Delete Method
+// Post Querry
+
+router.post('/', authenticateToken, postQueryHandler)
+
+// Delete Query
 
 router.delete("/:id", authenticateToken, deleteQuerry)
 
