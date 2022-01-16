@@ -8,7 +8,7 @@
     "node": "16.13.1"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node app.js",
+    "start": "app.js",
     "test": "mocha test"
   },
   "author": "samuel shyaka dus",
