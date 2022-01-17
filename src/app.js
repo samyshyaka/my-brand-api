@@ -1,18 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import { connectDB } from './config/dbConn.js';
 import index from './routes/index.js';
 import swaggerUi from 'swagger-ui-express';
 import { readFile } from "fs/promises";
+const PORT = process.env.PORT || 9000;
+
+//connect to mongoDB
+
+connectDB();
 
 const swaggerDocument  = JSON.parse(await readFile("./swagger.json"));
 
-const url = "mongodb://localhost/ArticlesDBex";
-
 const app = express();
 app.use(express.json());
-
-mongoose.connect(url);
-const con = mongoose.connection;
 
 app.use(
   '/api-docs',
@@ -20,17 +21,11 @@ app.use(
   swaggerUi.setup(swaggerDocument)
 );
 
-con.on("connected", () => {
-  console.log("connected..");
-  app.listen(9000, () => {
-    console.log("server started");
-  })
-});
-
-con.on("error", err => {
-  console.log(err);
-})
-
 app.use("/Api/v1", index);
+
+mongoose.connection.once('open', () => {
+  console.log('connected to mongoDB');
+  app.listen(PORT, () => console.log(`server running on port ${PORT}`));
+})
 
 export default app
