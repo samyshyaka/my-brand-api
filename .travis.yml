@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+  - "10"
+
+sudo: false
+ 
+branches:
+  only:
+  - master
+ 
+cache:
+  directories:
+    - node_modules
+ 
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  keep-history: true
+  api-key: d8d0e05a-7c86-48e7-b125-b63300027706
+  app: shyaka-portfolio

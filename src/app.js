@@ -22,7 +22,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  return res.status(200).send("The api working perfectly")
+  return res.status(200).send("The api is working perfectly")
 })
 
 app.get("*", (req, res) => {
