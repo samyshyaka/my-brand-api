@@ -10,7 +10,9 @@
   "scripts": {
     "start": "node src/app.js",
     "start:dev": "nodemon src/app.js",
-    "test": "mocha test"
+    "test": "mocha test",
+    "production": "NODE_ENV=production&&npm start",
+    "development": "set NODE_ENV=development&&npm start"
   },
   "author": "samuel shyaka dus",
   "license": "ISC",
