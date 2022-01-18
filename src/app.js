@@ -21,6 +21,8 @@ app.use(
   swaggerUi.setup(swaggerDocument)
 );
 
+app.use("/api/v1", index);
+
 app.get("/", (req, res) => {
   return res.status(200).send("The api is working perfectly")
 })
@@ -28,8 +30,6 @@ app.get("/", (req, res) => {
 app.get("*", (req, res) => {
   return res.status(500).send("server error")
 })
-
-app.use("/api/v1", index);
 
 mongoose.connection.once('open', () => {
   console.log('connected to mongoDB');
