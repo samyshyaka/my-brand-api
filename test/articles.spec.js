@@ -3,7 +3,6 @@ process.env.NODE_ENV = 'test';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 
-import Article from '../src/models/article.js'
 import server from '../src/app.js'
 
 chai.use(chaiHttp);
