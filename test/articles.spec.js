@@ -3,6 +3,7 @@ process.env.NODE_ENV = 'test';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 
+import Article from '../src/models/article.js'
 import server from '../src/app.js'
 
 chai.use(chaiHttp);
@@ -39,30 +40,32 @@ describe('/POST article', () => {
             done();
           });
     });
-    // it('it should POST a article ', (done) => {
-    //     let article = {
-    //         title: "The Lord of the Rings",
-    //         author: "J.R.R. Tolkien",
-    //         content: "The lord of the rings"
-    //     }
-    //       chai.request(server)
-    //       .post('/api/v1/articles')
-    //       .send(article)
-    //       .end((err, res) => {
-    //             res.should.have.status(200);
-    //             res.body.should.be.a('object');
-    //             res.body.should.have.property('data');
-    //             res.body.data.should.have.property('article');
-    //             res.body.data.article.should.have.property('title');
-    //             res.body.data.article.should.have.property('author');
-    //             res.body.data.article.should.have.property('content');
-    //         done();
-    //       });
-    // });
+    it('it should POST an article ', (done) => {
+        let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWU2OWFlOTFmMDEyZjg2MDE4ODQwNTMiLCJuYW1lIjoiRXJpYyIsInBhc3N3b3JkIjoiJDJiJDEwJGJtSUtSUzN6UU56Y1pMaG0wM3NUZk9sVmFWcG16N2J5cnRydnNNMEV6WUguTlQuVXJqM25HIiwiX192IjowLCJpYXQiOjE2NDI1MTYzMjcsImV4cCI6MTY0MjUxOTkyN30.9QKmLYzEjrIxEndJ7HvAKMMwYZwFjgDeMupw2nTKBes"
+        let article = {
+            title: "The Lord of the Rings",
+            author: "J.R.R. Tolkien",
+            content: "The lord of the rings"
+        }
+          chai.request(server)
+          .post('/api/v1/articles')
+          .auth(token, { type: 'bearer' })
+          .send(article)
+          .end((err, res) => {
+                res.should.have.status(201);
+                res.body.should.be.a('object');
+                res.body.should.have.property('data');
+                res.body.data.should.have.property('article');
+                res.body.data.article.should.have.property('title');
+                res.body.data.article.should.have.property('author');
+                res.body.data.article.should.have.property('content');
+            done();
+          });
+    });
 });
 describe('/GET/:id article', () => {
     it('it should GET the article by the given id', (done) => {
-        let id = "61e4014690b12add9ba7b332"
+        let id = "61e55e5379904e9bd63020af"
         chai.request(server)
           .get('/api/v1/articles/' + id)
           .end((err, res) => {
