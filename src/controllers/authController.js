@@ -13,7 +13,11 @@ const postAuthHandler = async (req, res) => {
             const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h'});
             res.status(200).json({ accessToken: accessToken });
         } else {
-            res.status(401).send('Not allowed')
+            res.status(401).send({
+                status : "fail",
+                code: 401,
+                message : "Not allowed"
+            })
         }
     }
     catch(err){
