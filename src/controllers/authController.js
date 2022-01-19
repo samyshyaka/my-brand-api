@@ -7,7 +7,7 @@ import User from '../models/user.js'
 
 const postAuthHandler = async (req, res) => {
     const users = await User.find()
-    const user = users.find(user => user.name == req.body.name)
+    const user = users.find(user => user.email == req.body.email)
     try{
         if (await bcrypt.compare(req.body.password, user.password)){
             const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h'});

@@ -6,7 +6,7 @@ import User from '../models/user.js';
 
 const authErrorHandler = async (req, res, next) => {
     const users = await User.find()
-    const user = users.find(user => user.name == req.body.name)
+    const user = users.find(user => user.email == req.body.email)
     if(user == null){
         return res.status(404).send({
             status : "fail",
@@ -19,7 +19,7 @@ const authErrorHandler = async (req, res, next) => {
 
 const usersErrorHandler = async (req, res, next) => {
     const users = await User.find()
-    const user = users.find(user => user.name == req.body.name)
+    const user = users.find(user => user.email == req.body.email)
     if(user != null){
         return res.status(409).send({
             status : "fail",
