@@ -5,7 +5,7 @@
       "title": "My Brand API",
       "description": "Personal Portfolio"
     },
-    "host": "localhost:9000",
+    "host": "shyaka-portfolio.herokuapp.com/",
     "basePath": "/api/v1",
     "tags": [
       {

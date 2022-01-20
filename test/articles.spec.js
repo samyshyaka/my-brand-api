@@ -5,6 +5,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 
 import { connectDB } from '../src/config/dbConn.js';
+import Article from '../src/models/article.js'
 import server from '../src/app.js'
 
 // connectDB();
@@ -13,6 +14,13 @@ chai.use(chaiHttp);
 chai.should();
 
 let id = "";
+
+describe('Article', () => {
+    before((done) => {
+        Article.deleteOne({}, (err) => {
+           done();
+        });
+    });
 
 describe('/GET article', () => {
     it('it should GET all the articles', (done) => {
@@ -57,8 +65,8 @@ describe('/POST article', () => {
         chai.request(server)
             .post('/api/v1/login')
             .send({
-                'name': 'Jadon',
-                'password': 'Sancho'
+                'email': 'jadon@gmail.com',
+                'password': 'Sancho25'
             })
             .end((err, res) => {
                 res.should.have.status(200);
@@ -137,8 +145,8 @@ describe('/PUT/:id article', () => {
         chai.request(server)
             .post('/api/v1/login')
             .send({
-                'name': 'Jadon',
-                'password': 'Sancho'
+                'email': 'jadon@gmail.com',
+                'password': 'Sancho25'
             })
             .end((err, res) => {
                 res.should.have.status(200);
@@ -196,8 +204,8 @@ describe('/DELETE/:id article', () => {
         chai.request(server)
             .post('/api/v1/login')
             .send({
-                'name': 'Jadon',
-                'password': 'Sancho'
+                'email': 'jadon@gmail.com',
+                'password': 'Sancho25'
             })
             .end((err, res) => {
                 res.should.have.status(200);
@@ -217,6 +225,7 @@ describe('/DELETE/:id article', () => {
         });
     });
 // });
+});
 });
 
 
