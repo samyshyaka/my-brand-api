@@ -1,5 +1,7 @@
 import express from 'express';
 const router = express.Router()
+
+import { addQueryValidation } from '../middleware/validation/querry.validation.js';
 import { authenticateToken } from '../middleware/verifyJWT.js'
 import { 
     getQueryHandler,
@@ -18,7 +20,7 @@ router.get('/:id', authenticateToken, getSpecificQueryHandler)
 
 // Post Querry
 
-router.post('/', postQueryHandler)
+router.post('/', addQueryValidation, postQueryHandler)
 
 // Delete Query
 

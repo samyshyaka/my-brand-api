@@ -24,7 +24,7 @@ const usersErrorHandler = async (req, res, next) => {
         return res.status(409).send({
             status : "fail",
             code: 409,
-            message : "User already exists"
+            message : "This email is associated with an existing account"
         })
     }
     next()

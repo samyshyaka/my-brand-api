@@ -1,8 +1,11 @@
 import express from 'express';
-const router = express.Router()
+
+import { addLoginValidation } from '../middleware/validation/login.validation.js';
 import { postAuthHandler } from '../controllers/authController.js'
 import { authErrorHandler } from '../middleware/errorHandlers.js'
 
-router.post('/', authErrorHandler, postAuthHandler)
+const router = express.Router()
+
+router.post('/', addLoginValidation, authErrorHandler, postAuthHandler)
 
 export default router

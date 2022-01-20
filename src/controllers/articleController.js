@@ -79,7 +79,7 @@ const putArticleHandler = async(req, res) => {
             res.status(404).send({
                 status : "fail",
                 code: 404,
-                message : "article not found"
+                message : "article doesn't exist"
             })
         }
         if(req.body.title){
@@ -97,10 +97,10 @@ const putArticleHandler = async(req, res) => {
              }
         })
     }catch(err){
-        res.status(304).send({
+        res.status(304).json({
             status : "error",
             code: 304,
-            message : "Not modified"
+            message : "article not modified"
         })
     }
 }

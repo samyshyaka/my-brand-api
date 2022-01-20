@@ -1,4 +1,6 @@
 import express from 'express';
+import { addCommentValidation } from '../middleware/validation/comment.validation.js';
+import { addEditCommentValidation } from '../middleware/validation/editComment.validation.js';
 import { authenticateToken } from '../middleware/verifyJWT.js'
 import { 
     getCommentsHandler, 
@@ -20,11 +22,11 @@ router.get('/:id', getSpecificCommentHandler)
 
 //Post Comment
 
-router.post('/', authenticateToken, postCommentHandler)
+router.post('/', addCommentValidation, authenticateToken, postCommentHandler)
 
 //Edit Comment
 
-router.put("/:id", authenticateToken, putCommentHandler)
+router.put("/:id", addEditCommentValidation, authenticateToken, putCommentHandler)
 
 // Delete Comment
 
