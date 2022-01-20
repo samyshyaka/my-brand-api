@@ -10,9 +10,8 @@
   "scripts": {
     "start": "node src/app.js",
     "start:dev": "nodemon src/app.js",
-    "test": "nyc --all mocha --timeout 3000000",
-    "production": "NODE_ENV=production&&npm start",
-    "development": "set NODE_ENV=development&&npm start"
+    "test": "NODE_ENV=test mocha ./test/  --timeout 30000",
+    "coverage": " nyc test --coverage"
   },
   "nyc": {
     "all": true,

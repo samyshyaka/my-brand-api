@@ -18,7 +18,7 @@ router.get('/:id', authenticateToken, getSpecificQueryHandler)
 
 // Post Querry
 
-router.post('/', authenticateToken, postQueryHandler)
+router.post('/', postQueryHandler)
 
 // Delete Query
 

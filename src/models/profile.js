@@ -13,7 +13,7 @@ const profileSchema = new mongoose.Schema({
     },
 
     email: {
-        type: Boolean,
+        type: String,
         required: true,
     }
 })

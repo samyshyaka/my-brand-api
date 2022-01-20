@@ -13,7 +13,7 @@ const querySchema = new mongoose.Schema({
     },
 
     message: {
-        type: Boolean,
+        type: String,
         required: true,
         default: false
     }

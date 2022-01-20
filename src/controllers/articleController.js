@@ -99,8 +99,8 @@ const putArticleHandler = async(req, res) => {
     }catch(err){
         res.status(304).send({
             status : "error",
-            code: 500,
-            message : "unable to communicate with the database"
+            code: 304,
+            message : "Not modified"
         })
     }
 }

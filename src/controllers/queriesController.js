@@ -2,27 +2,54 @@ import Query from '../models/query.js';
 
 const getQueryHandler = async(req,res) => {
     try {
-        const profiles = await Query.find()
-        res.status(200).json(profiles)
+        const queries = await Query.find()
+        res.status(200).json({
+            status : "success",
+            code: 200,
+            data : {
+                "queries" : queries
+             }
+        })
     }catch(err){
-        res.status(500).send('Error ' + err)
+        res.status(500).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
     }
 }
 
 const getSpecificQueryHandler = async(req,res) => {
     try {
-        const profiles = await Query.findById(req.params.id)
-        res.status(200).json(profiles)
+        const query = await Query.findById(req.params.id)
+        if (query == null) {
+            res.status(404).send({
+                status : "fail",
+                code: 404,
+                message : "query not found"
+            })
+        }
+        res.status(200).json({
+            status : "success",
+            code: 200,
+            data : {
+                "query" : query
+             }
+        })
     }catch(err){
-        res.status(500).send('Error ' + err)
+        res.status(500).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
     }
 }
 
 const postQueryHandler = async(req, res) => {
     const query = new Query({
-        title: req.body.title,
-        author: req.body.author,
-        content: req.body.content
+        name: req.body.name,
+        email: req.body.email,
+        message: req.body.message
     })
 
     try{
@@ -45,11 +72,26 @@ const postQueryHandler = async(req, res) => {
 
 const deleteQuerry = async(req, res) => {
     try{
-        const profile = await Query.findById(req.params.id);
-        const q1 = await profile.remove()
-        res.status(200).json(q1)
+        const query = await Query.findById(req.params.id);
+        if (query == null) {
+            res.status(404).send({
+                status : "fail",
+                code: 404,
+                message : "Query not found"
+            })
+        }
+        const q1 = await query.remove()
+        res.status(200).json({
+            status : "success",
+            code: 200,
+            message : "Query deleted"
+        })
     }catch(err){
-        res.status(500).send('error ' + err)
+        res.status(500).send({
+            status : "error",
+            code: 500,
+            message : "unable to communicate with the database"
+        })
     }
 }
 

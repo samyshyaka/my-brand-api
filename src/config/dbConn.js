@@ -1,15 +1,23 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv'
 
-const connectDB = async () => {
+dotenv.config();
+
+export const connectDB = async () => {
     try {
-
-        await mongoose.connect(process.env.MONGOHQ_URL || 'mongodb+srv://samuel:MiMM4TXX4kiofqhO@cluster0.uj3am.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
-            useUnifiedTopology: true,
-            useNewUrlParser: true        
-        })
-    } catch(err) {
-        console.error(err);
+      if (process.env.NODE_ENV == "test") {
+        console.log("Connected to the test database");
+        mongoose.connect(process.env.TEST_DB_URL, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true
+        });
+      } else {
+        mongoose.connect(process.env.MONGO_DB_URL, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true
+        });
+      }
+    } catch (err) {
+      console.error(err);
     }
-}
-
-export { connectDB };
+  };

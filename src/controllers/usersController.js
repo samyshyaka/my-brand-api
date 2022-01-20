@@ -2,15 +2,6 @@ import bcrypt from 'bcrypt';
 
 import User from '../models/user.js';
 
-const getUsersHandler = async(req,res) => {
-    try {
-        const users = await User.find()
-        res.status(200).json(users)
-    }catch(err){
-        res.status(500).send('Error ' + err)
-    }
-}
-
 const postUserHandler = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -21,16 +12,25 @@ const postUserHandler = async (req, res) => {
 
     try{
     const u1 = await newUser.save()
-    res.status(201).send(u1)
+    res.status(201).send({
+        status : "success",
+        code: 200,
+        data : {
+            "user" : u1
+         }
+    })
     }
 
     catch(err) {
-    res.status(500).send(''+err)
+    res.status(500).send({
+        status : "error",
+        code: 500,
+        message : "unable to cummunicate with the database"
+    })
     }
 
 }
 
-export { 
-    getUsersHandler,
+export {
     postUserHandler
 }

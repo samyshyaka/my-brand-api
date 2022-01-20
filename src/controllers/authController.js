@@ -16,7 +16,7 @@ const postAuthHandler = async (req, res) => {
             res.status(401).send({
                 status : "fail",
                 code: 401,
-                message : "Not allowed"
+                message : "Wrong email or password"
             })
         }
     }
