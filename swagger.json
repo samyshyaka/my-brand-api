@@ -5,14 +5,14 @@
       "title": "My Brand API",
       "description": "Personal Portfolio"
     },
-    "host": "http://shyaka-portfolio.herokuapp.com",
+    "host": "shyaka-portfolio.herokuapp.com",
     "basePath": "/api/v1",
     "tags": [
       {
         "name": "Articles"
       }
     ],
-    "schemes": ["http"],
+    "schemes": ["https"],
     "consumes": ["application/json"],
     "produces": ["application/json"],
     "paths": {
