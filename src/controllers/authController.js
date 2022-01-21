@@ -11,7 +11,11 @@ const postAuthHandler = async (req, res) => {
     try{
         if (await bcrypt.compare(req.body.password, user.password)){
             const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h'});
-            res.status(200).json({ accessToken: accessToken });
+            res.status(200).json({
+                status : "success",
+                code: 200,                
+                accessToken: accessToken 
+            });
         } else {
             res.status(401).send({
                 status : "fail",
@@ -21,7 +25,11 @@ const postAuthHandler = async (req, res) => {
         }
     }
     catch(err){
-        res.status(500).send(''+err)
+        res.status(500).send({
+            status : "fail",
+            code: 500,
+            message : "Unable to connect to the database"
+        })
     }
 }
 
