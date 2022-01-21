@@ -1,4 +1,15 @@
 import Joi from 'joi';
+import pkg from 'joi-password-complexity';
+const  passwordComplexity  = pkg;
+
+const complexityOptions = {
+    min: 8,
+    max: 30,
+    lowerCase: 1,
+    upperCase: 1,
+    numeric: 1,
+    symbol: 1,
+  };
 
 const schema = 
    Joi.object({
@@ -7,10 +18,9 @@ const schema =
             "string.empty": "email can't be empty!",
             "string.email": "invalid email!",
           }),
-        password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,30}$')).required().messages({
+        password: passwordComplexity(complexityOptions).required().messages({
             "any.required": "password is required!",
             "string.empty": "password can't be empty!",
-            'string.pattern.base': "password does not meet the requirements",
           }),
     })
 
