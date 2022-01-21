@@ -339,6 +339,123 @@
                     }
                   }
               },
+              "/comments": {
+                "get": {
+                  "tags": ["Comments"],
+                  "summary": "Get a list of all comments",
+                  "description": "Get a list of all comments",
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "schema": {
+                        "$ref": "#/definitions/Comment"
+                      }
+                    }
+                  }
+                },
+      
+                "post": {
+                  "tags": ["Comments"],
+                  "summary": "Create new comment",
+                  "description": "Create new comment in system",
+                  "security": [
+                    {
+                       "Bearer": []
+                    }
+                  ],
+                  "parameters": [
+                    
+                    {
+                      "name": "Comment",
+                      "in": "body",
+                      "description": "Comment that we want to create",
+                      "schema": {
+                        "$ref": "#/definitions/Comment"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "201": {
+                      "description": "New comment is created",
+                      "schema": {
+                        "$ref": "#/definitions/Comment"
+                      }
+                    }
+                  }
+                }
+              },
+              
+              "/comments/{id}": {
+                  "parameters": [
+                    {
+                      "name": "id",
+                      "in": "path",
+                      "required": true,
+                      "description": "ID of the comment that we want to find",
+                      "type": "string"
+                    }
+                  ],
+                  "get": {
+                      "summary": "Get comment with the given ID",
+                      "description": "Get comment with the given ID",
+                      "tags": ["Comments"],
+                      "responses": {
+                        "200": {
+                          "description": "Comment is retrieved",
+                          "schema": {
+                            "$ref": "#/definitions/Comment"
+                          }
+                        }
+                      }
+                    },
+                  "put": {
+                      "summary": "Update comment with the given ID",
+                      "description": "Update comment with the given ID",
+                      "security": [
+                        {
+                           "Bearer": []
+                        }
+                      ],
+                      "tags": ["Comments"],
+                      "parameters": [
+                        {
+                          "name": "comment",
+                          "in": "body",
+                          "description": "Comment with new values of properties",
+                          "schema": {
+                            "$ref": "#/definitions/updateComment"
+                          }
+                        }
+                      ],
+                      "responses": {
+                        "200": {
+                          "description": "Comment is updated",
+                          "schema": {
+                            "$ref": "#/definitions/Comment"
+                          }
+                        }
+                      }
+                    },
+                    "delete": {
+                      "summary": "Delete comment with the given ID",
+                      "description": "Delete comment with the given ID",
+                      "security": [
+                        {
+                           "Bearer": []
+                        }
+                      ],
+                      "tags": ["Comments"],
+                      "responses": {
+                        "200": {
+                          "description": "Comment is deleted",
+                          "schema": {
+                            "$ref": "#/definitions/Comment"
+                          }
+                        }
+                      }
+                    }
+                },
             "/users": {                  
                 "post": {
                   "tags": ["Users"],
@@ -428,7 +545,7 @@
             }
         },
         "Profile": {
-          "required": ["title", "author", "content"],
+          "required": ["name", "whatIDo", "email"],
           "properties": {
             "name": {
               "type": "string"
@@ -442,7 +559,7 @@
           }
         },
         "updateProfile": {
-            "required": ["title", "author", "content"],
+            "required": ["name", "whatIDo", "email"],
             "properties": {
               "name": {
                 "type": "string"
@@ -456,7 +573,7 @@
             }
         },
         "Query": {
-          "required": ["title", "author", "content"],
+          "required": ["name", "email", "message"],
           "properties": {
             "name": {
               "type": "string"
@@ -468,6 +585,28 @@
               "type": "string"
             }
           }
+        },
+        "Comment": {
+          "required": ["name", "comment"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "comment": {
+              "type": "string"
+            }
+          }
+        },
+        "updateComment": {
+            "required": ["name", "comment"],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "string"
+              }
+            }
         },
         "User": {
           "required": ["name", "password"],
