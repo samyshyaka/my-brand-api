@@ -6,6 +6,6 @@ import { postUserHandler } from '../controllers/usersController.js'
 
 const router = express.Router();
 
-router.post('/',addUserValidation, usersErrorHandler, postUserHandler)
+router.post('/', usersErrorHandler, postUserHandler)
 
 export default router
