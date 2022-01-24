@@ -2,6 +2,7 @@ import express from 'express';
 import { authenticateToken } from '../middleware/verifyJWT.js'
 import { addArticleValidation } from '../middleware/validation/article.validation.js';
 import { addEditArticleValidation } from '../middleware/validation/editArticle.validation.js';
+import { articlesErrorHandler } from '../middleware/errorHandlers.js'; 
 import { 
     getArticlesHandler, 
     getSpecificArticleHandler,
@@ -16,7 +17,7 @@ router.get('/', getArticlesHandler)
 
 router.get('/:id', getSpecificArticleHandler)
 
-router.post('/', addArticleValidation, authenticateToken, postArticleHandler)
+router.post('/', addArticleValidation, authenticateToken, articlesErrorHandler, postArticleHandler)
 
 router.put("/:id", addEditArticleValidation, authenticateToken, putArticleHandler)
 

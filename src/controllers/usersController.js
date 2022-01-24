@@ -14,9 +14,12 @@ const postUserHandler = async (req, res) => {
     const u1 = await newUser.save()
     res.status(201).send({
         status : "success",
-        code: 200,
+        code: 201,
         data : {
-            "user" : u1
+            "user" : {
+                "id":u1._id,
+                "email":u1.email
+            }
          }
     })
     }

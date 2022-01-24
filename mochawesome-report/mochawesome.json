@@ -5,9 +5,9 @@
     "passes": 25,
     "pending": 0,
     "failures": 0,
-    "start": "2022-01-21T10:18:25.531Z",
-    "end": "2022-01-21T10:18:27.457Z",
-    "duration": 1926,
+    "start": "2022-01-21T11:41:42.766Z",
+    "end": "2022-01-21T11:41:46.254Z",
+    "duration": 3488,
     "testsRegistered": 25,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "d1b832d9-afcc-4db8-8ae0-3b5e4efa2f3a",
+      "uuid": "699fc048-319a-44cf-bcd5-b07c6c753133",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "bc7b5f4e-60d6-442f-b3b6-fbc46fb74826",
+          "uuid": "6a6351ef-0bf5-48e4-9240-59410abc6440",
           "title": "Article",
           "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/articles.spec.js",
           "file": "/test/articles.spec.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"Article\"",
               "fullTitle": "Article \"before all\" hook in \"Article\"",
               "timedOut": false,
-              "duration": 31,
+              "duration": 708,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "Article.deleteMany({}, (err) => {\n});\nUser.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "9d09bd0b-d0e8-43d7-9f58-15a75771120f",
-              "parentUUID": "bc7b5f4e-60d6-442f-b3b6-fbc46fb74826",
+              "uuid": "2eba58ed-4786-442a-a0a4-8858bfeae01e",
+              "parentUUID": "6a6351ef-0bf5-48e4-9240-59410abc6440",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook in \"Article\"",
               "fullTitle": "Article \"after all\" hook in \"Article\"",
               "timedOut": false,
-              "duration": 3,
+              "duration": 9,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "Article.deleteMany({}, (err) => {\n});\nUser.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "b16a51ac-dff9-4bc9-a817-cbc08f1cf55a",
-              "parentUUID": "bc7b5f4e-60d6-442f-b3b6-fbc46fb74826",
+              "uuid": "e375f9b3-286f-49f2-9008-47882f5a595a",
+              "parentUUID": "6a6351ef-0bf5-48e4-9240-59410abc6440",
               "isHook": true,
               "skipped": false
             }
@@ -74,7 +74,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "2657d76d-fb3b-43ce-86c2-da1836796ecd",
+              "uuid": "c6caa3e3-1c3c-4278-a0db-6734a1f2ab92",
               "title": "/GET article",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/articles.spec.js",
               "file": "/test/articles.spec.js",
@@ -85,35 +85,35 @@
                   "title": "it should GET all the articles",
                   "fullTitle": "Article /GET article it should GET all the articles",
                   "timedOut": false,
-                  "duration": 43,
+                  "duration": 164,
                   "state": "passed",
-                  "speed": "medium",
+                  "speed": "slow",
                   "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
                   "code": "chai.request(server)\n.get('/api/v1/articles')\n.end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('data');\n        res.body.data.should.have.property('articles');\n        res.body.data.articles.should.be.a('array');\n    done();\n});",
                   "err": {},
-                  "uuid": "6d427a9f-7ac5-461a-9b1b-b970254f53c2",
-                  "parentUUID": "2657d76d-fb3b-43ce-86c2-da1836796ecd",
+                  "uuid": "7976fa56-b82c-4a00-951d-fa6592104ed2",
+                  "parentUUID": "c6caa3e3-1c3c-4278-a0db-6734a1f2ab92",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "6d427a9f-7ac5-461a-9b1b-b970254f53c2"
+                "7976fa56-b82c-4a00-951d-fa6592104ed2"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 43,
+              "duration": 164,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "dbdf5e47-8149-4c22-8d4f-4570be714b1c",
+              "uuid": "c9b375d5-ca66-4317-85cc-0d78d86e8d41",
               "title": "/POST article",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/articles.spec.js",
               "file": "/test/articles.spec.js",
@@ -124,17 +124,17 @@
                   "title": "it should not POST an article without authorization",
                   "fullTitle": "Article /POST article it should not POST an article without authorization",
                   "timedOut": false,
-                  "duration": 52,
+                  "duration": 161,
                   "state": "passed",
-                  "speed": "medium",
+                  "speed": "slow",
                   "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
                   "code": "const article = {\n    title: \"The importance of learning computer development\",\n    author: \"Sam\",\n    content: \"Computer development improves creativity\"\n}\nchai.request(server)\n.post('/api/v1/articles')\n.send(article)\n.end((err, res) => {\n        res.should.have.status(401);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Unauthorized');\n    done();\n});",
                   "err": {},
-                  "uuid": "1e9e4d6e-a6d0-4b7f-bf5e-ecb54fc40836",
-                  "parentUUID": "dbdf5e47-8149-4c22-8d4f-4570be714b1c",
+                  "uuid": "a136f025-0902-4795-bf4c-caf80b32069e",
+                  "parentUUID": "c9b375d5-ca66-4317-85cc-0d78d86e8d41",
                   "isHook": false,
                   "skipped": false
                 },
@@ -142,7 +142,7 @@
                   "title": "it should POST an article ",
                   "fullTitle": "Article /POST article it should POST an article ",
                   "timedOut": false,
-                  "duration": 228,
+                  "duration": 400,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -151,27 +151,27 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/users')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(201);\nchai.request(server)\n    .post('/api/v1/login')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('accessToken');\n        const token = res.body.accessToken;\n                    \n            const article = {\n                title: \"The importance of learning computer development\",\n                author: \"Sam\",\n                content: \"Computer development improves creativity\"\n            }\n            chai.request(server)\n            .post('/api/v1/articles')\n            .set({ Authorization: `Bearer ${token}` })\n            .send(article)\n            .end((err, res) => {\n                    res.should.have.status(201);\n                    res.body.should.be.a('object');\n                    res.body.should.have.property('data');\n                    res.body.data.should.have.property('article');\n                    res.body.data.article.should.have.property('_id');\n                    res.body.data.article.should.have.property('title');\n                    res.body.data.article.should.have.property('author');\n                    res.body.data.article.should.have.property('content');\n                    id = res.body.data.article._id;\n                done();\n            });\n        })\n    });",
                   "err": {},
-                  "uuid": "78127ccc-8c69-4e20-b976-61bdebdb1852",
-                  "parentUUID": "dbdf5e47-8149-4c22-8d4f-4570be714b1c",
+                  "uuid": "a7f408a1-8779-40e3-b668-8d3c6e047826",
+                  "parentUUID": "c9b375d5-ca66-4317-85cc-0d78d86e8d41",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "1e9e4d6e-a6d0-4b7f-bf5e-ecb54fc40836",
-                "78127ccc-8c69-4e20-b976-61bdebdb1852"
+                "a136f025-0902-4795-bf4c-caf80b32069e",
+                "a7f408a1-8779-40e3-b668-8d3c6e047826"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 280,
+              "duration": 561,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "a8d4954a-9a28-4651-95b8-43dd57b830ba",
+              "uuid": "12fac815-bd1d-4ebb-bf04-1c33571f0c19",
               "title": "/GET/:id article",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/articles.spec.js",
               "file": "/test/articles.spec.js",
@@ -182,7 +182,7 @@
                   "title": "it should GET the article by the given id",
                   "fullTitle": "Article /GET/:id article it should GET the article by the given id",
                   "timedOut": false,
-                  "duration": 6,
+                  "duration": 15,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -191,26 +191,26 @@
                   "context": null,
                   "code": "chai.request(server)\n.get('/api/v1/articles/' + id)\n.end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('data');\n        res.body.data.should.have.property('article');\n        res.body.data.article.should.have.property('title');\n        res.body.data.article.should.have.property('author');\n        res.body.data.article.should.have.property('content');\n        res.body.data.article.should.have.property('_id').eql(id);\n    done();\n});",
                   "err": {},
-                  "uuid": "e328e94e-3ae5-490e-8f58-12a5e0829ffd",
-                  "parentUUID": "a8d4954a-9a28-4651-95b8-43dd57b830ba",
+                  "uuid": "44d3c810-3898-4145-a0bc-51a5220a5d01",
+                  "parentUUID": "12fac815-bd1d-4ebb-bf04-1c33571f0c19",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e328e94e-3ae5-490e-8f58-12a5e0829ffd"
+                "44d3c810-3898-4145-a0bc-51a5220a5d01"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 6,
+              "duration": 15,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "1b103c3d-96ba-441f-8330-348e07863e87",
+              "uuid": "70dc0532-2ad0-48fc-9973-f0e463898586",
               "title": "/PUT/:id article",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/articles.spec.js",
               "file": "/test/articles.spec.js",
@@ -221,7 +221,7 @@
                   "title": "it should not UPDATE an article without authorization",
                   "fullTitle": "Article /PUT/:id article it should not UPDATE an article without authorization",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 7,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -230,8 +230,8 @@
                   "context": null,
                   "code": "chai.request(server)\n.put('/api/v1/articles/' + id)\n.send({\n    title: \"The Chronicles of Narnia\", \n    author: \"C.S. Lewis\", \n    content: \"The Chronicles of Narnia\",                   \n    })\n.end((err, res) => {\n        res.should.have.status(401);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Unauthorized');\n    done();\n});",
                   "err": {},
-                  "uuid": "9a217fc7-eedd-4932-a016-5be7b983ac78",
-                  "parentUUID": "1b103c3d-96ba-441f-8330-348e07863e87",
+                  "uuid": "650dab2d-b2f5-4d02-a12c-9aa4ef34abd9",
+                  "parentUUID": "70dc0532-2ad0-48fc-9973-f0e463898586",
                   "isHook": false,
                   "skipped": false
                 },
@@ -239,7 +239,7 @@
                   "title": "it should UPDATE an article",
                   "fullTitle": "Article /PUT/:id article it should UPDATE an article",
                   "timedOut": false,
-                  "duration": 111,
+                  "duration": 189,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -248,27 +248,27 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/login')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('accessToken');\n        const token = res.body.accessToken;\n\n    chai.request(server)\n    .put('/api/v1/articles/' + id)\n    .set({ Authorization: `Bearer ${token}` })\n    .send({\n        title: \"The Chronicles of Narnia\", \n        author: \"C.S. Lewis\", \n        content: \"The Chronicles of Narnia\",                   \n        })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('data');\n        res.body.data.should.have.property('article');\n        res.body.data.article.should.have.property('title');\n        res.body.data.article.should.have.property('author');\n        res.body.data.article.should.have.property('content');\n        res.body.data.article.should.have.property('_id').eql(id);\n        done();\n    });        \n});",
                   "err": {},
-                  "uuid": "eeaaffc8-2997-45a6-91b2-fd32e24039c5",
-                  "parentUUID": "1b103c3d-96ba-441f-8330-348e07863e87",
+                  "uuid": "f5368d91-27ce-43a3-92c8-866e759189a8",
+                  "parentUUID": "70dc0532-2ad0-48fc-9973-f0e463898586",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "9a217fc7-eedd-4932-a016-5be7b983ac78",
-                "eeaaffc8-2997-45a6-91b2-fd32e24039c5"
+                "650dab2d-b2f5-4d02-a12c-9aa4ef34abd9",
+                "f5368d91-27ce-43a3-92c8-866e759189a8"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 114,
+              "duration": 196,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "26ccd6a2-348a-420a-9248-83212e6e0f67",
+              "uuid": "8d8335c7-d0d3-4cb5-b9f6-a48987e49e7d",
               "title": "/DELETE/:id article",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/articles.spec.js",
               "file": "/test/articles.spec.js",
@@ -279,7 +279,7 @@
                   "title": "it should not DELETE an article without authorization",
                   "fullTitle": "Article /DELETE/:id article it should not DELETE an article without authorization",
                   "timedOut": false,
-                  "duration": 4,
+                  "duration": 5,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -288,8 +288,8 @@
                   "context": null,
                   "code": "chai.request(server)\n    .delete('/api/v1/articles/' + id)\n    .end((err, res) => {\n        res.should.have.status(401);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Unauthorized');\n        done();\n    });",
                   "err": {},
-                  "uuid": "e33c473c-bd24-48c8-9a0f-53a980e29ab3",
-                  "parentUUID": "26ccd6a2-348a-420a-9248-83212e6e0f67",
+                  "uuid": "f1280769-fe24-4103-aa40-292d8bc3d7fb",
+                  "parentUUID": "8d8335c7-d0d3-4cb5-b9f6-a48987e49e7d",
                   "isHook": false,
                   "skipped": false
                 },
@@ -297,7 +297,7 @@
                   "title": "it should DELETE an article",
                   "fullTitle": "Article /DELETE/:id article it should DELETE an article",
                   "timedOut": false,
-                  "duration": 121,
+                  "duration": 140,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -306,21 +306,21 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/login')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('accessToken');\n        const token = res.body.accessToken;\nchai.request(server)\n    .delete('/api/v1/articles/' + id)\n    .set({ Authorization: `Bearer ${token}` })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Article deleted');\n        done();\n    });\n});",
                   "err": {},
-                  "uuid": "34d713a6-b662-46a2-9e4a-44a811be9c49",
-                  "parentUUID": "26ccd6a2-348a-420a-9248-83212e6e0f67",
+                  "uuid": "c8210937-f327-44c2-9378-bd44326dc932",
+                  "parentUUID": "8d8335c7-d0d3-4cb5-b9f6-a48987e49e7d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e33c473c-bd24-48c8-9a0f-53a980e29ab3",
-                "34d713a6-b662-46a2-9e4a-44a811be9c49"
+                "f1280769-fe24-4103-aa40-292d8bc3d7fb",
+                "c8210937-f327-44c2-9378-bd44326dc932"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 125,
+              "duration": 145,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
@@ -336,7 +336,7 @@
           "_timeout": 30000
         },
         {
-          "uuid": "533b24d5-cd00-40aa-b6c7-cc229336ba06",
+          "uuid": "d964b04c-959c-4fad-9e97-8c0e3fb7674e",
           "title": "LOGIN",
           "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/auth.spec.js",
           "file": "/test/auth.spec.js",
@@ -345,7 +345,7 @@
               "title": "\"before all\" hook in \"LOGIN\"",
               "fullTitle": "LOGIN \"before all\" hook in \"LOGIN\"",
               "timedOut": false,
-              "duration": 2,
+              "duration": 4,
               "state": null,
               "speed": null,
               "pass": false,
@@ -354,8 +354,8 @@
               "context": null,
               "code": "User.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "5a4603ca-42a4-48f3-9c82-e4cd2966619f",
-              "parentUUID": "533b24d5-cd00-40aa-b6c7-cc229336ba06",
+              "uuid": "faf65976-7a74-4000-8ca3-563c033d0ada",
+              "parentUUID": "d964b04c-959c-4fad-9e97-8c0e3fb7674e",
               "isHook": true,
               "skipped": false
             }
@@ -365,7 +365,7 @@
               "title": "\"after all\" hook in \"LOGIN\"",
               "fullTitle": "LOGIN \"after all\" hook in \"LOGIN\"",
               "timedOut": false,
-              "duration": 12,
+              "duration": 4,
               "state": null,
               "speed": null,
               "pass": false,
@@ -374,8 +374,8 @@
               "context": null,
               "code": "User.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "e0bad8ff-d375-4018-a2cd-34078e48ac11",
-              "parentUUID": "533b24d5-cd00-40aa-b6c7-cc229336ba06",
+              "uuid": "24311157-5452-4e26-9cf4-09ec2f2f2c5d",
+              "parentUUID": "d964b04c-959c-4fad-9e97-8c0e3fb7674e",
               "isHook": true,
               "skipped": false
             }
@@ -383,7 +383,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "65f40f51-6b3b-447e-84fd-2c5cc1a6f9ff",
+              "uuid": "2c86150b-1467-410b-9005-0379eb7eb2fd",
               "title": "LOGIN a user",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/auth.spec.js",
               "file": "/test/auth.spec.js",
@@ -394,7 +394,7 @@
                   "title": "it should login a user ",
                   "fullTitle": "LOGIN LOGIN a user it should login a user ",
                   "timedOut": false,
-                  "duration": 223,
+                  "duration": 236,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -403,20 +403,20 @@
                   "context": null,
                   "code": "chai.request(server)\n.post('/api/v1/users')\n.send({\n    'email': 'jadoncsancho@gmail.com',\n    'password': 'Sancho25'\n})\n.end((err, res) => {\n    res.should.have.status(201);\n    chai.request(server)\n        .post('/api/v1/login')\n        .send({\n            'email': 'jadoncsancho@gmail.com',\n            'password': 'Sancho25'\n        })\n        .end((err, res) => {\n            res.should.have.status(200);\n            res.body.should.be.a('object');\n            res.body.should.have.property('accessToken');\n            done();\n        })\n})",
                   "err": {},
-                  "uuid": "ab05a548-2be5-4d57-871f-4ff2304a0eb4",
-                  "parentUUID": "65f40f51-6b3b-447e-84fd-2c5cc1a6f9ff",
+                  "uuid": "c2c88b20-c027-4449-a41c-0839410db2b0",
+                  "parentUUID": "2c86150b-1467-410b-9005-0379eb7eb2fd",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "ab05a548-2be5-4d57-871f-4ff2304a0eb4"
+                "c2c88b20-c027-4449-a41c-0839410db2b0"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 223,
+              "duration": 236,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
@@ -432,7 +432,7 @@
           "_timeout": 30000
         },
         {
-          "uuid": "9a4a776a-ecfb-4c75-ae3f-05af4618521b",
+          "uuid": "64b92be9-9f2c-4fa6-9670-4176dd0b5b36",
           "title": "Profile",
           "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/profiles.spec.js",
           "file": "/test/profiles.spec.js",
@@ -441,7 +441,7 @@
               "title": "\"before all\" hook in \"Profile\"",
               "fullTitle": "Profile \"before all\" hook in \"Profile\"",
               "timedOut": false,
-              "duration": 8,
+              "duration": 4,
               "state": null,
               "speed": null,
               "pass": false,
@@ -450,8 +450,8 @@
               "context": null,
               "code": "Profile.deleteMany({}, (err) => {\n});\nUser.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "5879ec62-ee8c-4f84-8de9-a56dd023bf55",
-              "parentUUID": "9a4a776a-ecfb-4c75-ae3f-05af4618521b",
+              "uuid": "adb1b720-7e38-4796-bdec-8ce8fc51d3fb",
+              "parentUUID": "64b92be9-9f2c-4fa6-9670-4176dd0b5b36",
               "isHook": true,
               "skipped": false
             }
@@ -461,7 +461,7 @@
               "title": "\"after all\" hook in \"Profile\"",
               "fullTitle": "Profile \"after all\" hook in \"Profile\"",
               "timedOut": false,
-              "duration": 3,
+              "duration": 5,
               "state": null,
               "speed": null,
               "pass": false,
@@ -470,8 +470,8 @@
               "context": null,
               "code": "Profile.deleteMany({}, (err) => {\n});\nUser.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "fb881e2c-a271-4b4a-8345-dd251ffdfc44",
-              "parentUUID": "9a4a776a-ecfb-4c75-ae3f-05af4618521b",
+              "uuid": "782ddc64-73da-4d5c-9290-bccff21c7b05",
+              "parentUUID": "64b92be9-9f2c-4fa6-9670-4176dd0b5b36",
               "isHook": true,
               "skipped": false
             }
@@ -479,7 +479,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "7a1e56b1-b603-4745-8a27-53bc2d6c21d0",
+              "uuid": "5febdf96-9e26-4129-952c-3f0d6f39a952",
               "title": "/GET profile",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/profiles.spec.js",
               "file": "/test/profiles.spec.js",
@@ -490,7 +490,7 @@
                   "title": "it should GET all the profiles",
                   "fullTitle": "Profile /GET profile it should GET all the profiles",
                   "timedOut": false,
-                  "duration": 7,
+                  "duration": 13,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -499,26 +499,26 @@
                   "context": null,
                   "code": "chai.request(server)\n.get('/api/v1/profiles')\n.end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('data');\n        res.body.data.should.have.property('profiles');\n        res.body.data.profiles.should.be.a('array');\n    done();\n});",
                   "err": {},
-                  "uuid": "34f7b8ae-487f-4cb5-a739-5a6f4e3a4e53",
-                  "parentUUID": "7a1e56b1-b603-4745-8a27-53bc2d6c21d0",
+                  "uuid": "cee5f405-ae10-456e-9f60-1d1bf4c83a20",
+                  "parentUUID": "5febdf96-9e26-4129-952c-3f0d6f39a952",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "34f7b8ae-487f-4cb5-a739-5a6f4e3a4e53"
+                "cee5f405-ae10-456e-9f60-1d1bf4c83a20"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 7,
+              "duration": 13,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "c89962fe-571b-4ceb-9ddf-19b08a89a9c9",
+              "uuid": "3aece4a7-7078-4641-b5cb-18c5a26cfc77",
               "title": "/POST profile",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/profiles.spec.js",
               "file": "/test/profiles.spec.js",
@@ -529,7 +529,7 @@
                   "title": "it should not create a profile without authorization",
                   "fullTitle": "Profile /POST profile it should not create a profile without authorization",
                   "timedOut": false,
-                  "duration": 7,
+                  "duration": 9,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -538,8 +538,8 @@
                   "context": null,
                   "code": "const profile = {\n    name: \"Samuel\",\n    whatIDo: \"Software developer\",\n    email: \"samuelshyaka@gmail.com\"\n}\nchai.request(server)\n.post('/api/v1/profiles')\n.send(profile)\n.end((err, res) => {\n        res.should.have.status(401);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Unauthorized');\n    done();\n});",
                   "err": {},
-                  "uuid": "44d1d224-bca2-4d7a-8bd2-764a982ec2c4",
-                  "parentUUID": "c89962fe-571b-4ceb-9ddf-19b08a89a9c9",
+                  "uuid": "8be9485e-5001-448a-9a61-a41b0c7955e0",
+                  "parentUUID": "3aece4a7-7078-4641-b5cb-18c5a26cfc77",
                   "isHook": false,
                   "skipped": false
                 },
@@ -547,7 +547,7 @@
                   "title": "it should create a profile ",
                   "fullTitle": "Profile /POST profile it should create a profile ",
                   "timedOut": false,
-                  "duration": 213,
+                  "duration": 248,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -556,27 +556,27 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/users')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(201);\nchai.request(server)\n    .post('/api/v1/login')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('accessToken');\n        const token = res.body.accessToken;\n                    \n            const profile = {\n                name: \"Samuel\",\n                whatIDo: \"Software engineer\",\n                email: \"samuelshyaka@gmail.com\"\n            }\n            chai.request(server)\n            .post('/api/v1/profiles')\n            .set({ Authorization: `Bearer ${token}` })\n            .send(profile)\n            .end((err, res) => {\n                    res.should.have.status(201);\n                    res.body.should.be.a('object');\n                    res.body.should.have.property('data');\n                    res.body.data.should.have.property('profile');\n                    res.body.data.profile.should.have.property('_id');\n                    res.body.data.profile.should.have.property('name');\n                    res.body.data.profile.should.have.property('whatIDo');\n                    res.body.data.profile.should.have.property('email');\n                    id = res.body.data.profile._id;\n                done();\n            });\n        })\n    });",
                   "err": {},
-                  "uuid": "1e68e22a-4eb8-432a-8d2e-d7b850f28965",
-                  "parentUUID": "c89962fe-571b-4ceb-9ddf-19b08a89a9c9",
+                  "uuid": "9bb79555-4fdf-4bbe-9cd4-95d3bbca2bf0",
+                  "parentUUID": "3aece4a7-7078-4641-b5cb-18c5a26cfc77",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "44d1d224-bca2-4d7a-8bd2-764a982ec2c4",
-                "1e68e22a-4eb8-432a-8d2e-d7b850f28965"
+                "8be9485e-5001-448a-9a61-a41b0c7955e0",
+                "9bb79555-4fdf-4bbe-9cd4-95d3bbca2bf0"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 220,
+              "duration": 257,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "a1e58f5e-2956-491a-9dd8-078f337ead7f",
+              "uuid": "17f06c80-84d0-4c06-b6a3-95c85e0eb031",
               "title": "/GET/:id profile",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/profiles.spec.js",
               "file": "/test/profiles.spec.js",
@@ -587,7 +587,7 @@
                   "title": "it should GET the profile by the given id",
                   "fullTitle": "Profile /GET/:id profile it should GET the profile by the given id",
                   "timedOut": false,
-                  "duration": 6,
+                  "duration": 18,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -596,26 +596,26 @@
                   "context": null,
                   "code": "chai.request(server)\n.get('/api/v1/profiles/' + id)\n.end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('data');\n        res.body.data.should.have.property('profile');\n        res.body.data.profile.should.have.property('name');\n        res.body.data.profile.should.have.property('whatIDo');\n        res.body.data.profile.should.have.property('email');\n        res.body.data.profile.should.have.property('_id').eql(id);\n    done();\n});",
                   "err": {},
-                  "uuid": "b72fb6ef-b23c-4573-a757-3518c3f09fa8",
-                  "parentUUID": "a1e58f5e-2956-491a-9dd8-078f337ead7f",
+                  "uuid": "83ee19f7-d600-48e7-9689-6b96011ffc67",
+                  "parentUUID": "17f06c80-84d0-4c06-b6a3-95c85e0eb031",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "b72fb6ef-b23c-4573-a757-3518c3f09fa8"
+                "83ee19f7-d600-48e7-9689-6b96011ffc67"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 6,
+              "duration": 18,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "7ba171fa-155c-467d-b0e1-009d9cba99db",
+              "uuid": "c8aed6f9-d4a7-4fda-ab2a-b12192df2b54",
               "title": "/PUT/:id profile",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/profiles.spec.js",
               "file": "/test/profiles.spec.js",
@@ -626,7 +626,7 @@
                   "title": "it should not UPDATE a profile without authorization",
                   "fullTitle": "Profile /PUT/:id profile it should not UPDATE a profile without authorization",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 11,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -635,8 +635,8 @@
                   "context": null,
                   "code": "chai.request(server)\n.put('/api/v1/profiles/' + id)\n.send({\n    name: \"Samuel\",\n    whatIDo: \"Software developer\",\n    email: \"samuelshyaka@gmail.com\"                   \n    })\n.end((err, res) => {\n        res.should.have.status(401);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Unauthorized');\n    done();\n});",
                   "err": {},
-                  "uuid": "2dbbd4f8-2427-4ce4-a651-e15a9d825fd6",
-                  "parentUUID": "7ba171fa-155c-467d-b0e1-009d9cba99db",
+                  "uuid": "aa826a69-ee16-4c1e-88c1-a1e07b17015e",
+                  "parentUUID": "c8aed6f9-d4a7-4fda-ab2a-b12192df2b54",
                   "isHook": false,
                   "skipped": false
                 },
@@ -644,7 +644,7 @@
                   "title": "it should UPDATE a profile",
                   "fullTitle": "Profile /PUT/:id profile it should UPDATE a profile",
                   "timedOut": false,
-                  "duration": 113,
+                  "duration": 155,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -653,27 +653,27 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/login')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('accessToken');\n        const token = res.body.accessToken;\n\n    chai.request(server)\n    .put('/api/v1/profiles/' + id)\n    .set({ Authorization: `Bearer ${token}` })\n    .send({\n        name: \"Samuel\",\n        whatIDo: \"Software developer\",\n        email: \"samuelshyaka@gmail.com\"                   \n        })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('data');\n        res.body.data.should.have.property('profile');\n        res.body.data.profile.should.have.property('name');\n        res.body.data.profile.should.have.property('whatIDo');\n        res.body.data.profile.should.have.property('email');\n        res.body.data.profile.should.have.property('_id').eql(id);\n        done();\n    });        \n});",
                   "err": {},
-                  "uuid": "04155fd5-121c-4d80-b432-3a5482c780eb",
-                  "parentUUID": "7ba171fa-155c-467d-b0e1-009d9cba99db",
+                  "uuid": "d638b852-bc0d-45da-9683-09cbf9e3e2ac",
+                  "parentUUID": "c8aed6f9-d4a7-4fda-ab2a-b12192df2b54",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "2dbbd4f8-2427-4ce4-a651-e15a9d825fd6",
-                "04155fd5-121c-4d80-b432-3a5482c780eb"
+                "aa826a69-ee16-4c1e-88c1-a1e07b17015e",
+                "d638b852-bc0d-45da-9683-09cbf9e3e2ac"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 116,
+              "duration": 166,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "036d6d15-24b4-4787-85b1-da6739af415c",
+              "uuid": "e74b7c15-0128-46ec-a659-44ff622c53f7",
               "title": "/DELETE/:id profile",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/profiles.spec.js",
               "file": "/test/profiles.spec.js",
@@ -684,7 +684,7 @@
                   "title": "it should not DELETE a profile without authorization",
                   "fullTitle": "Profile /DELETE/:id profile it should not DELETE a profile without authorization",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 4,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -693,8 +693,8 @@
                   "context": null,
                   "code": "chai.request(server)\n    .delete('/api/v1/profiles/' + id)\n    .end((err, res) => {\n        res.should.have.status(401);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Unauthorized');\n        done();\n    });",
                   "err": {},
-                  "uuid": "705d239d-c7f2-41cb-a236-7fe03f704da9",
-                  "parentUUID": "036d6d15-24b4-4787-85b1-da6739af415c",
+                  "uuid": "fc712fa8-09bf-4fa3-8d59-77ef2020ea0a",
+                  "parentUUID": "e74b7c15-0128-46ec-a659-44ff622c53f7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -702,7 +702,7 @@
                   "title": "it should DELETE a profile",
                   "fullTitle": "Profile /DELETE/:id profile it should DELETE a profile",
                   "timedOut": false,
-                  "duration": 137,
+                  "duration": 158,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -711,21 +711,21 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/login')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('accessToken');\n        const token = res.body.accessToken;\nchai.request(server)\n    .delete('/api/v1/profiles/' + id)\n    .set({ Authorization: `Bearer ${token}` })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Profile deleted');\n        done();\n    });\n});",
                   "err": {},
-                  "uuid": "6b7b529c-a0aa-4c6d-aff3-89ea24c09601",
-                  "parentUUID": "036d6d15-24b4-4787-85b1-da6739af415c",
+                  "uuid": "4c3ba820-afb6-4abc-b6fe-900381608230",
+                  "parentUUID": "e74b7c15-0128-46ec-a659-44ff622c53f7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "705d239d-c7f2-41cb-a236-7fe03f704da9",
-                "6b7b529c-a0aa-4c6d-aff3-89ea24c09601"
+                "fc712fa8-09bf-4fa3-8d59-77ef2020ea0a",
+                "4c3ba820-afb6-4abc-b6fe-900381608230"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 140,
+              "duration": 162,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
@@ -741,7 +741,7 @@
           "_timeout": 30000
         },
         {
-          "uuid": "7644f873-2d01-4eac-8d6e-ad1cd4b60cbf",
+          "uuid": "3cad55a4-6f63-4ede-a053-41cd36f7d400",
           "title": "Query",
           "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/queries.spec.js",
           "file": "/test/queries.spec.js",
@@ -749,26 +749,6 @@
             {
               "title": "\"before all\" hook in \"Query\"",
               "fullTitle": "Query \"before all\" hook in \"Query\"",
-              "timedOut": false,
-              "duration": 4,
-              "state": null,
-              "speed": null,
-              "pass": false,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "Query.deleteMany({}, (err) => {\n});\nUser.deleteMany({}, (err) => {\n    done();\n });",
-              "err": {},
-              "uuid": "d733b1da-ddfe-4773-92f7-b32e77bdb9aa",
-              "parentUUID": "7644f873-2d01-4eac-8d6e-ad1cd4b60cbf",
-              "isHook": true,
-              "skipped": false
-            }
-          ],
-          "afterHooks": [
-            {
-              "title": "\"after all\" hook in \"Query\"",
-              "fullTitle": "Query \"after all\" hook in \"Query\"",
               "timedOut": false,
               "duration": 3,
               "state": null,
@@ -779,8 +759,28 @@
               "context": null,
               "code": "Query.deleteMany({}, (err) => {\n});\nUser.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "b623cdc5-bed3-49e1-9635-e80bb1998be7",
-              "parentUUID": "7644f873-2d01-4eac-8d6e-ad1cd4b60cbf",
+              "uuid": "0bc62a4e-4b77-400b-bf40-d287fb8ffe23",
+              "parentUUID": "3cad55a4-6f63-4ede-a053-41cd36f7d400",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Query\"",
+              "fullTitle": "Query \"after all\" hook in \"Query\"",
+              "timedOut": false,
+              "duration": 4,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Query.deleteMany({}, (err) => {\n});\nUser.deleteMany({}, (err) => {\n    done();\n });",
+              "err": {},
+              "uuid": "b223e5fe-f563-43b9-90e9-d2dbc3dd98b7",
+              "parentUUID": "3cad55a4-6f63-4ede-a053-41cd36f7d400",
               "isHook": true,
               "skipped": false
             }
@@ -788,7 +788,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "e91c7e96-151b-4465-b9a6-175ae3aeb3d3",
+              "uuid": "8a19d59c-2d55-4e74-bff3-b9cea7093f86",
               "title": "/GET query",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/queries.spec.js",
               "file": "/test/queries.spec.js",
@@ -799,7 +799,7 @@
                   "title": "it should not retrieve a list of queries without authorization",
                   "fullTitle": "Query /GET query it should not retrieve a list of queries without authorization",
                   "timedOut": false,
-                  "duration": 8,
+                  "duration": 6,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -808,8 +808,8 @@
                   "context": null,
                   "code": "chai.request(server)\n.get('/api/v1/queries')\n.end((err, res) => {\n    res.should.have.status(401);\n    res.body.should.be.a('object');\n    res.body.should.have.property('message').eql('Unauthorized');\n    done();\n});",
                   "err": {},
-                  "uuid": "101ab2be-c548-4472-a8a9-d2506907c946",
-                  "parentUUID": "e91c7e96-151b-4465-b9a6-175ae3aeb3d3",
+                  "uuid": "3a268b22-440b-4640-9395-c314eccc0976",
+                  "parentUUID": "8a19d59c-2d55-4e74-bff3-b9cea7093f86",
                   "isHook": false,
                   "skipped": false
                 },
@@ -817,7 +817,7 @@
                   "title": "it should retrieve a list of queries ",
                   "fullTitle": "Query /GET query it should retrieve a list of queries ",
                   "timedOut": false,
-                  "duration": 209,
+                  "duration": 265,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -826,27 +826,27 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/users')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(201);\n        chai.request(server)\n            .post('/api/v1/login')\n            .send({\n                'email': 'jadoncsancho@gmail.com',\n                'password': 'Sancho25'\n            })\n            .end((err, res) => {\n                res.should.have.status(200);\n                res.body.should.be.a('object');\n                res.body.should.have.property('accessToken');\n                const token = res.body.accessToken;\n                    \n                    chai.request(server)\n                    .get('/api/v1/queries')\n                    .set({ Authorization: `Bearer ${token}` })\n                    .end((err, res) => {\n                        res.body.should.be.a('object');\n                        res.body.should.have.property('data');\n                        res.body.data.should.have.property('queries');\n                        res.body.data.queries.should.be.a('array');\n                        done();\n                    });\n            })\n        });",
                   "err": {},
-                  "uuid": "7349b83d-d36d-45f0-a5c5-887ca6fd1b6d",
-                  "parentUUID": "e91c7e96-151b-4465-b9a6-175ae3aeb3d3",
+                  "uuid": "164e1e2b-b892-43c3-b688-caeb0293d941",
+                  "parentUUID": "8a19d59c-2d55-4e74-bff3-b9cea7093f86",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "101ab2be-c548-4472-a8a9-d2506907c946",
-                "7349b83d-d36d-45f0-a5c5-887ca6fd1b6d"
+                "3a268b22-440b-4640-9395-c314eccc0976",
+                "164e1e2b-b892-43c3-b688-caeb0293d941"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 217,
+              "duration": 271,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "ee365ab4-31b2-4b83-b0ca-4343b1a7c3fc",
+              "uuid": "83c6954e-db86-40a0-bf49-a29b6ba884e2",
               "title": "/POST query",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/queries.spec.js",
               "file": "/test/queries.spec.js",
@@ -857,7 +857,7 @@
                   "title": "it should POST a query",
                   "fullTitle": "Query /POST query it should POST a query",
                   "timedOut": false,
-                  "duration": 7,
+                  "duration": 13,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -866,26 +866,26 @@
                   "context": null,
                   "code": "const query = {\n    name: \"Jadon Sancho\",\n    email: \"jadonsancho@gmail.com\",\n    message: \"I want to hire you\"\n}\nchai.request(server)\n.post('/api/v1/queries')\n.send(query)\n.end((err, res) => {\n    res.should.have.status(201);\n    res.body.should.be.a('object');\n    res.body.should.have.property('data');\n    res.body.data.should.have.property('query');\n    res.body.data.query.should.have.property('_id');\n    res.body.data.query.should.have.property('name');\n    res.body.data.query.should.have.property('email');\n    res.body.data.query.should.have.property('message');\n    id = res.body.data.query._id;\n    done();\n});",
                   "err": {},
-                  "uuid": "e6adca9a-fd79-4634-b7d7-ba24b5d24776",
-                  "parentUUID": "ee365ab4-31b2-4b83-b0ca-4343b1a7c3fc",
+                  "uuid": "57caf825-e1e3-4b93-8423-a4df6823e3db",
+                  "parentUUID": "83c6954e-db86-40a0-bf49-a29b6ba884e2",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e6adca9a-fd79-4634-b7d7-ba24b5d24776"
+                "57caf825-e1e3-4b93-8423-a4df6823e3db"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 7,
+              "duration": 13,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "3548d4e0-ac69-418d-853e-1eaa79778866",
+              "uuid": "9696b54b-fae0-4e91-80e7-271738ae95dc",
               "title": "/GET/:id query",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/queries.spec.js",
               "file": "/test/queries.spec.js",
@@ -896,7 +896,7 @@
                   "title": "it should not GET the query by the given id without authorization",
                   "fullTitle": "Query /GET/:id query it should not GET the query by the given id without authorization",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 7,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -905,8 +905,8 @@
                   "context": null,
                   "code": "chai.request(server)\n.get('/api/v1/queries/' + id)\n.end((err, res) => {\n    res.should.have.status(401);\n    res.body.should.be.a('object');\n    res.body.should.have.property('message').eql('Unauthorized');\n    done();\n});",
                   "err": {},
-                  "uuid": "b39ca190-a6b3-43cb-9cb1-31b098e7cd85",
-                  "parentUUID": "3548d4e0-ac69-418d-853e-1eaa79778866",
+                  "uuid": "5db5ec72-172e-489c-bccc-cb8f024f4980",
+                  "parentUUID": "9696b54b-fae0-4e91-80e7-271738ae95dc",
                   "isHook": false,
                   "skipped": false
                 },
@@ -914,7 +914,7 @@
                   "title": "it should GET the query by the given id ",
                   "fullTitle": "Query /GET/:id query it should GET the query by the given id ",
                   "timedOut": false,
-                  "duration": 102,
+                  "duration": 141,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -923,27 +923,27 @@
                   "context": null,
                   "code": "chai.request(server)\n           .post('/api/v1/login')\n           .send({\n               'email': 'jadoncsancho@gmail.com',\n               'password': 'Sancho25'\n           })\n   .end((err, res) => {\n       res.should.have.status(200);\n       res.body.should.be.a('object');\n       res.body.should.have.property('accessToken');\n       const token = res.body.accessToken;\n                   \n           chai.request(server)\n           .get('/api/v1/queries/' + id)\n           .set({ Authorization: `Bearer ${token}` })\n           .end((err, res) => {\n               res.should.have.status(200);\n               res.body.should.be.a('object');\n               res.body.should.have.property('data');\n               res.body.data.should.have.property('query');\n               res.body.data.query.should.have.property('name');\n               res.body.data.query.should.have.property('email');\n               res.body.data.query.should.have.property('message');\n               res.body.data.query.should.have.property('_id').eql(id);\n               done();\n           });\n   });",
                   "err": {},
-                  "uuid": "14e6680c-b81a-4292-94d8-4856fa37d40c",
-                  "parentUUID": "3548d4e0-ac69-418d-853e-1eaa79778866",
+                  "uuid": "e52769f8-28ae-406a-929e-3c18f974c304",
+                  "parentUUID": "9696b54b-fae0-4e91-80e7-271738ae95dc",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "b39ca190-a6b3-43cb-9cb1-31b098e7cd85",
-                "14e6680c-b81a-4292-94d8-4856fa37d40c"
+                "5db5ec72-172e-489c-bccc-cb8f024f4980",
+                "e52769f8-28ae-406a-929e-3c18f974c304"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 105,
+              "duration": 148,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
             },
             {
-              "uuid": "9faf2853-3747-49a6-b282-f9f4bf1417d6",
+              "uuid": "eeeb2daf-80f8-4645-b5fe-652ce6fdbe98",
               "title": "/DELETE/:id query",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/queries.spec.js",
               "file": "/test/queries.spec.js",
@@ -954,7 +954,7 @@
                   "title": "it should not DELETE a query without authorization",
                   "fullTitle": "Query /DELETE/:id query it should not DELETE a query without authorization",
                   "timedOut": false,
-                  "duration": 3,
+                  "duration": 12,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -963,8 +963,8 @@
                   "context": null,
                   "code": "chai.request(server)\n    .delete('/api/v1/queries/' + id)\n    .end((err, res) => {\n        res.should.have.status(401);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Unauthorized');\n        done();\n    });",
                   "err": {},
-                  "uuid": "9a6d840b-fc6c-4f23-8b23-e2af38f3754b",
-                  "parentUUID": "9faf2853-3747-49a6-b282-f9f4bf1417d6",
+                  "uuid": "9d3f8f8e-ac4a-4ee5-bca5-6436b4b2405c",
+                  "parentUUID": "eeeb2daf-80f8-4645-b5fe-652ce6fdbe98",
                   "isHook": false,
                   "skipped": false
                 },
@@ -972,7 +972,7 @@
                   "title": "it should DELETE a query",
                   "fullTitle": "Query /DELETE/:id query it should DELETE a query",
                   "timedOut": false,
-                  "duration": 104,
+                  "duration": 157,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -981,21 +981,21 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/login')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('accessToken');\n        const token = res.body.accessToken;\nchai.request(server)\n    .delete('/api/v1/queries/' + id)\n    .set({ Authorization: `Bearer ${token}` })\n    .end((err, res) => {\n        res.should.have.status(200);\n        res.body.should.be.a('object');\n        res.body.should.have.property('message').eql('Query deleted');\n        done();\n    });\n});",
                   "err": {},
-                  "uuid": "5373896d-fe2a-4041-a3e7-0c4c143161a3",
-                  "parentUUID": "9faf2853-3747-49a6-b282-f9f4bf1417d6",
+                  "uuid": "abff57a3-1280-416c-bda8-fd66127e3327",
+                  "parentUUID": "eeeb2daf-80f8-4645-b5fe-652ce6fdbe98",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "9a6d840b-fc6c-4f23-8b23-e2af38f3754b",
-                "5373896d-fe2a-4041-a3e7-0c4c143161a3"
+                "9d3f8f8e-ac4a-4ee5-bca5-6436b4b2405c",
+                "abff57a3-1280-416c-bda8-fd66127e3327"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 107,
+              "duration": 169,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000
@@ -1011,7 +1011,7 @@
           "_timeout": 30000
         },
         {
-          "uuid": "4043ce64-d15d-48ed-9e80-b87c13e056f4",
+          "uuid": "77c1dcf8-809e-4792-a99f-086f85fcc656",
           "title": "User",
           "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/users.spec.js",
           "file": "/test/users.spec.js",
@@ -1029,8 +1029,8 @@
               "context": null,
               "code": "User.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "f461ae1b-5765-496b-99dc-ee214820a630",
-              "parentUUID": "4043ce64-d15d-48ed-9e80-b87c13e056f4",
+              "uuid": "eca6a79c-378c-477e-9e0b-a887f7eef3e7",
+              "parentUUID": "77c1dcf8-809e-4792-a99f-086f85fcc656",
               "isHook": true,
               "skipped": false
             }
@@ -1040,7 +1040,7 @@
               "title": "\"after all\" hook in \"User\"",
               "fullTitle": "User \"after all\" hook in \"User\"",
               "timedOut": false,
-              "duration": 1,
+              "duration": 4,
               "state": null,
               "speed": null,
               "pass": false,
@@ -1049,8 +1049,8 @@
               "context": null,
               "code": "User.deleteMany({}, (err) => {\n    done();\n });",
               "err": {},
-              "uuid": "707404cd-f210-49d7-9cba-ced499057e55",
-              "parentUUID": "4043ce64-d15d-48ed-9e80-b87c13e056f4",
+              "uuid": "784f938f-33df-48b8-9539-2fecb7cfaced",
+              "parentUUID": "77c1dcf8-809e-4792-a99f-086f85fcc656",
               "isHook": true,
               "skipped": false
             }
@@ -1058,7 +1058,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "d318c3b0-2ddf-4a5e-a238-ac5bb228dfee",
+              "uuid": "5d46861a-97a7-4ca3-8327-4ac61234562d",
               "title": "/POST user",
               "fullFile": "/home/samy/Documents/Code/ATLP/Capstone Project/my-brand-api/test/users.spec.js",
               "file": "/test/users.spec.js",
@@ -1069,7 +1069,7 @@
                   "title": "it should create a user ",
                   "fullTitle": "User /POST user it should create a user ",
                   "timedOut": false,
-                  "duration": 100,
+                  "duration": 137,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -1078,20 +1078,20 @@
                   "context": null,
                   "code": "chai.request(server)\n    .post('/api/v1/users')\n    .send({\n        'email': 'jadoncsancho@gmail.com',\n        'password': 'Sancho25'\n    })\n    .end((err, res) => {\n        res.should.have.status(201);\n        res.body.should.be.a('object');\n        res.body.should.have.property('data');\n        res.body.data.should.have.property('user');\n        res.body.data.user.should.have.property('_id');\n        res.body.data.user.should.have.property('email');\n        done();        \n    })",
                   "err": {},
-                  "uuid": "2f677370-1f27-48b3-a1d5-86f93b592437",
-                  "parentUUID": "d318c3b0-2ddf-4a5e-a238-ac5bb228dfee",
+                  "uuid": "f2f123ba-c8cd-4f87-9e8e-fc4cf580ec05",
+                  "parentUUID": "5d46861a-97a7-4ca3-8327-4ac61234562d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "2f677370-1f27-48b3-a1d5-86f93b592437"
+                "f2f123ba-c8cd-4f87-9e8e-fc4cf580ec05"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 100,
+              "duration": 137,
               "root": false,
               "rootEmpty": false,
               "_timeout": 30000

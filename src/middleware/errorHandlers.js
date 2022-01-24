@@ -3,6 +3,7 @@
 // app.use(express.json());
 
 import User from '../models/user.js';
+import Article from '../models/article.js'
 
 const authErrorHandler = async (req, res, next) => {
     const users = await User.find()
@@ -30,7 +31,21 @@ const usersErrorHandler = async (req, res, next) => {
     next()
 }
 
+const articlesErrorHandler = async (req, res, next) => {
+    const articles = await Article.find()
+    const article = articles.find(article => article.title == req.body.title)
+    if(article != null){
+        return res.status(409).send({
+            status : "fail",
+            code: 409,
+            message : "Title taken, please find a different title"
+        })
+    }
+    next()
+}
+
 export { 
     authErrorHandler,
-    usersErrorHandler 
+    usersErrorHandler,
+    articlesErrorHandler 
 }
