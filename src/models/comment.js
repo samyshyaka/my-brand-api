@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-
 const commentSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -10,6 +9,14 @@ const commentSchema = new mongoose.Schema({
     comment: {
         type: String,
         required: true,
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    article: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Article'
     }
 })
 
