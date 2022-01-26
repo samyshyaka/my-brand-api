@@ -1,11 +1,9 @@
 import express from 'express';
-import { addCommentValidation } from '../middleware/validation/comment.validation.js';
 import { addEditCommentValidation } from '../middleware/validation/editComment.validation.js';
 import { authenticateToken } from '../middleware/verifyJWT.js'
 import { 
     getCommentsHandler, 
     getSpecificCommentHandler,
-    postCommentHandler,
     putCommentHandler,
     deleteCommentHandler 
     } from '../controllers/commentController.js'
@@ -22,7 +20,7 @@ router.get('/:id', getSpecificCommentHandler)
 
 //Post Comment
 
-router.post('/', addCommentValidation, authenticateToken, postCommentHandler)
+
 
 //Edit Comment
 
