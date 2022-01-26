@@ -1,4 +1,5 @@
 import Comment from '../models/comment.js'
+import Article from '../models/article.js'
 
 const getCommentsHandler = async(req,res) => {
     try {
@@ -42,13 +43,22 @@ const getSpecificCommentHandler = async(req,res) => {
 }
 
 const postCommentHandler = async(req, res) => {
+    const id = req.params.id;
     const comment = new Comment({
         name: req.body.name,
-        comment: req.body.comment
+        comment: req.body.comment,
+        article: id
     })
 
     try{
         const c1 = await comment.save()
+        const relatedArticle = await Article.findById(id);
+        relatedArticle.comments.push(comment)
+        await relatedArticle.save((err) => {
+            if(err){
+                console.log(err)
+            }
+        })
         res.status(201).json({
             status : "success",
             code: 201,

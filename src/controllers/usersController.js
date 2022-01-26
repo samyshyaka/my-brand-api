@@ -6,6 +6,7 @@ const postUserHandler = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     const newUser = new User({
+        username: req.body.username,
         email: req.body.email,
         password: hashedPassword
     })
@@ -18,6 +19,7 @@ const postUserHandler = async (req, res) => {
         data : {
             "user" : {
                 "id":u1._id,
+                "username": u1.username,
                 "email":u1.email
             }
          }
