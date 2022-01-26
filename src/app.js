@@ -1,10 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+
+import { readFile } from "fs/promises";
+
 import { connectDB } from './config/dbConn.js';
 import index from './routes/index.js';
-import swaggerUi from 'swagger-ui-express';
-import { readFile } from "fs/promises";
 const PORT = process.env.PORT || 9000;
 
 dotenv.config();
@@ -16,6 +20,14 @@ connectDB();
 const swaggerDocument  = JSON.parse(await readFile("./swagger.json"));
 
 const app = express();
+
+app.use(cookieParser());
+
+app.use(cors ({
+  origin: '*',
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
+
 app.use(express.json());
 
 app.use(

@@ -11,11 +11,14 @@ const postAuthHandler = async (req, res) => {
     try{
         if (await bcrypt.compare(req.body.password, user.password)){
             const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h'});
-            res.status(200).json({
+            res
+            .status(200)
+            .send({
                 status : "success",
-                code: 200,                
-                accessToken: accessToken 
-            });
+                code: 200,
+                accessToken : accessToken
+            })
+            
         } else {
             res.status(401).send({
                 status : "fail",

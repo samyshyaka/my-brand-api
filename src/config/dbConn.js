@@ -11,6 +11,12 @@ export const connectDB = async () => {
           useNewUrlParser: true,
           useUnifiedTopology: true
         });
+      } else if (process.env.NODE_ENV == "development") {
+        console.log("Connected to the dev database");
+        mongoose.connect(process.env.DEV_DB_URL, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true
+        });
       } else {
         mongoose.connect(process.env.MONGO_DB_URL, {
           useNewUrlParser: true,
