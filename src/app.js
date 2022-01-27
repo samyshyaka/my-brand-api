@@ -23,8 +23,6 @@ const app = express();
 
 app.use(cookieParser());
 
-app.use(cors());
-
 app.use(express.json());
 
 app.use(
@@ -33,7 +31,7 @@ app.use(
   swaggerUi.setup(swaggerDocument)
 );
 
-app.use("/api/v1", index);
+app.use("/api/v1", cors(), index);
 
 app.get("/", (req, res) => {
   return res.status(200).send("The api is working perfectly")
