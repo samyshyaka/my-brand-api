@@ -8,26 +8,16 @@ import {
     deleteCommentHandler 
     } from '../controllers/commentController.js'
 
+import cors from 'cors';
+
 const router = express.Router()
 
-//Get Comments
+router.get('/', cors(), getCommentsHandler)
 
-router.get('/', getCommentsHandler)
+router.get('/:id', cors(), getSpecificCommentHandler)
 
-//Get Specific Comment
+router.put("/:id", cors(), addEditCommentValidation, authenticateToken, putCommentHandler)
 
-router.get('/:id', getSpecificCommentHandler)
-
-//Post Comment
-
-
-
-//Edit Comment
-
-router.put("/:id", addEditCommentValidation, authenticateToken, putCommentHandler)
-
-// Delete Comment
-
-router.delete("/:id", authenticateToken, deleteCommentHandler)
+router.delete("/:id", cors(), authenticateToken, deleteCommentHandler)
 
 export default router;
