@@ -23,10 +23,7 @@ const app = express();
 
 app.use(cookieParser());
 
-app.use(cors ({
-  origin: '*',
-  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}));
+app.use(cors());
 
 app.use(express.json());
 
