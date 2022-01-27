@@ -10,7 +10,7 @@ const getCommentsHandler = async(req,res) => {
             data : {
                 "comments" : comments
              }
-        })
+        }).end();
     }catch(err){
         res.status(500).send('Error ' + err)
     }
@@ -32,7 +32,7 @@ const getSpecificCommentHandler = async(req,res) => {
             data : {
                 "comment" : comment
              }
-        })
+        }).end();
     }catch(err){
         res.status(500).send({
             status : "error",
