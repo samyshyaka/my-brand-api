@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 import { readFile } from "fs/promises";
@@ -31,7 +30,7 @@ app.use(
   swaggerUi.setup(swaggerDocument)
 );
 
-app.use("/api/v1", cors(), index);
+app.use("/api/v1", index);
 
 app.get("/", (req, res) => {
   return res.status(200).send("The api is working perfectly")

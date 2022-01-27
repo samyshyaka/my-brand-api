@@ -6,8 +6,11 @@ import QueryRouter from './queries.js';
 import UserRouter from './users.js';
 import AuthRouter from './login.js';
 import CommentRouter from './comments.js';
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors());
 
 app.use("/Articles", ArticleRouter);
 app.use("/Profiles", ProfileRouter);
