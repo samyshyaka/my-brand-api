@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
-import cookieParser from 'cookie-parser';
 
 import { readFile } from "fs/promises";
 
@@ -19,8 +18,6 @@ connectDB();
 const swaggerDocument  = JSON.parse(await readFile("./swagger.json"));
 
 const app = express();
-
-app.use(cookieParser());
 
 app.use(express.json());
 

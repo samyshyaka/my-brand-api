@@ -7,17 +7,16 @@ import {
     putCommentHandler,
     deleteCommentHandler 
     } from '../controllers/commentController.js'
-
-import cors from 'cors';
+    
 
 const router = express.Router()
 
-router.get('/', cors(), getCommentsHandler)
+router.get('/', getCommentsHandler)
 
-router.get('/:id', cors(), getSpecificCommentHandler)
+router.get('/:id', getSpecificCommentHandler)
 
-router.put("/:id", cors(), addEditCommentValidation, authenticateToken, putCommentHandler)
+router.put("/:id", addEditCommentValidation, authenticateToken, putCommentHandler)
 
-router.delete("/:id", cors(), authenticateToken, deleteCommentHandler)
+router.delete("/:id", authenticateToken, deleteCommentHandler)
 
 export default router;
