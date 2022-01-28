@@ -70,7 +70,7 @@ const postCommentHandler = async(req, res) => {
         res.status(500).send({
             status : "error",
             code: 500,
-            message : "unable to communicate with the database"
+            message : err
         })
     }
 }
