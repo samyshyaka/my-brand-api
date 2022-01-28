@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 
 import { readFile } from "fs/promises";
 
@@ -20,6 +21,8 @@ const swaggerDocument  = JSON.parse(await readFile("./swagger.json"));
 const app = express();
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use(
   '/api-docs',
