@@ -21,9 +21,9 @@ router.get('/:id', getSpecificArticleHandler)
 
 router.post('/', addArticleValidation, authenticateToken, articlesErrorHandler, postArticleHandler)
 
-router.put("/:id", addEditArticleValidation, authenticateToken, putArticleHandler)
+router.put('/:id', addEditArticleValidation, authenticateToken, putArticleHandler)
 
-router.delete("/:id", authenticateToken, deleteArticleHandler)
+router.delete('/:id', authenticateToken, deleteArticleHandler)
 
 router.post('/:id/comments', addCommentValidation, authenticateToken, postCommentHandler)
 

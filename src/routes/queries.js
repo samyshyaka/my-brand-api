@@ -24,6 +24,6 @@ router.post('/', addQueryValidation, postQueryHandler)
 
 // Delete Query
 
-router.delete("/:id", authenticateToken, deleteQuerry)
+router.delete('/:id', authenticateToken, deleteQuerry)
 
 export default router

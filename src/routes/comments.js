@@ -15,8 +15,8 @@ router.get('/', getCommentsHandler)
 
 router.get('/:id', getSpecificCommentHandler)
 
-router.put("/:id", addEditCommentValidation, authenticateToken, putCommentHandler)
+router.put('/:id', addEditCommentValidation, authenticateToken, putCommentHandler)
 
-router.delete("/:id", authenticateToken, deleteCommentHandler)
+router.delete('/:id', authenticateToken, deleteCommentHandler)
 
 export default router;
