@@ -42,38 +42,38 @@ const getSpecificCommentHandler = async(req,res) => {
     }
 }
 
-const postCommentHandler = async(req, res) => {
-    const id = req.params.id;
-    const comment = new Comment({
-        name: req.body.name,
-        comment: req.body.comment,
-        article: id
-    })
+// const postCommentHandler = async(req, res) => {
+//     const id = req.params.id;
+//     const comment = new Comment({
+//         name: req.body.name,
+//         comment: req.body.comment,
+//         article: id
+//     })
 
-    try{
-        const c1 = await comment.save()
-        const relatedArticle = await Article.findById(id);
-        relatedArticle.comments.push(comment)
-        await relatedArticle.save((err) => {
-            if(err){
-                console.log(err)
-            }
-        })
-        res.status(201).json({
-            status : "success",
-            code: 201,
-            data : {
-                "comment" : c1
-             }
-        })
-    }catch(err){
-        res.status(500).send({
-            status : "error",
-            code: 500,
-            message : err
-        })
-    }
-}
+//     try{
+//         const c1 = await comment.save()
+//         const relatedArticle = await Article.findById(id);
+//         relatedArticle.comments.push(comment)
+//         await relatedArticle.save((err) => {
+//             if(err){
+//                 console.log(err)
+//             }
+//         })
+//         res.status(201).json({
+//             status : "success",
+//             code: 201,
+//             data : {
+//                 "comment" : c1
+//              }
+//         })
+//     } catch(err){
+//         res.status(500).send({
+//             status : "error",
+//             code: 500,
+//             message : err
+//         })
+//     }
+// }
 
 const putCommentHandler = async(req, res) => {
     try{
@@ -133,7 +133,6 @@ const deleteCommentHandler = async(req, res) => {
 
 export { getCommentsHandler, 
     getSpecificCommentHandler,
-    postCommentHandler,
     putCommentHandler,
     deleteCommentHandler
 }

@@ -4,7 +4,7 @@ import { addArticleValidation } from '../middleware/validation/article.validatio
 import { addEditArticleValidation } from '../middleware/validation/editArticle.validation.js';
 import { articlesErrorHandler } from '../middleware/errorHandlers.js'; 
 import { addCommentValidation } from '../middleware/validation/comment.validation.js';
-import { postCommentHandler } from '../controllers/commentController.js'
+// import { postCommentHandler } from '../controllers/commentController.js'
 import { 
     getArticlesHandler, 
     getSpecificArticleHandler,
@@ -25,6 +25,6 @@ router.put("/:id", addEditArticleValidation, authenticateToken, putArticleHandle
 
 router.delete("/:id", authenticateToken, deleteArticleHandler)
 
-router.post('/:id/comments', addCommentValidation, authenticateToken, postCommentHandler)
+router.post('/:id/comments', addCommentValidation, authenticateToken)
 
 export default router;
