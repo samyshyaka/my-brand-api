@@ -1,4 +1,4 @@
-import Comment from '../models/comment.js'
+import Comment from '../../comment.js'
 import Article from '../models/article.js'
 
 const getCommentsHandler = async(req,res) => {

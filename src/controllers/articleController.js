@@ -30,14 +30,15 @@ const getSpecificArticleHandler = async(req,res) => {
                 code: 404,
                 message : "article not found"
             })
+        } else {
+            res.status(200).json({
+                status : "success",
+                code: 200,
+                data : {
+                    "article" : article
+                 }
+            })
         }
-        res.status(200).json({
-            status : "success",
-            code: 200,
-            data : {
-                "article" : article
-             }
-        })
     }catch(err){
         res.status(500).send({
             status : "error",
