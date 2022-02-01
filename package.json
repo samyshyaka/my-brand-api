@@ -10,8 +10,9 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "NODE_ENV=development nodemon src/app.js",
-    "test": "NODE_ENV=test nyc mocha --reporter mochawesome --timeout 30000",
-    "coverage": " nyc --reporter mochawesome test"
+    "test": "nyc mocha test --exit",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "coverage": "nyc report --reporter=text-lcov | coveralls && nyc report --reporter=lcov"
   },
   "author": "samuel shyaka dus",
   "license": "ISC",
