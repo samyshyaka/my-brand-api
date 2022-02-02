@@ -27,6 +27,7 @@ jobs:
       env:
         MONGO_DB_URL: ${{secrets.MONGO_DB_URL}}
         ACCESS_TOKEN_SECRET: ${{secrets.ACCESS_TOKEN_SECRET}}
+        TEST_DB_URL: ${{secrets.TEST_DB_URL}}
       
   deploy:
       runs-on: ubuntu-latest
