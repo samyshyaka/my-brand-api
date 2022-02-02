@@ -25,7 +25,8 @@ jobs:
     - name: Run test
       run: npm test
       env:
-          MONGO_DB_URL: ${{secrets.MONGO_DB_URL}}
+        MONGO_DB_URL: ${{secrets.MONGO_DB_URL}}
+        ACCESS_TOKEN_SECRET: ${{secrets.ACCESS_TOKEN_SECRET}}
       
   deploy:
       runs-on: ubuntu-latest
