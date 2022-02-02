@@ -30,6 +30,7 @@ describe('User', () => {
             chai.request(server)
                 .post('/api/v1/users')
                 .send({
+                    'username': 'Jadon',
                     'email': 'jadoncsancho@gmail.com',
                     'password': 'Sancho25'
                 })
@@ -38,7 +39,8 @@ describe('User', () => {
                     res.body.should.be.a('object');
                     res.body.should.have.property('data');
                     res.body.data.should.have.property('user');
-                    res.body.data.user.should.have.property('_id');
+                    res.body.data.user.should.have.property('id');
+                    res.body.data.user.should.have.property('username');
                     res.body.data.user.should.have.property('email');
                     done();        
                 })
