@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "NODE_ENV=development nodemon src/app.js",
-    "test": "mocha test --exit",
+    "test": "NODE_ENV=test mocha test --exit",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "coverage": "nyc report --reporter=text-lcov | coveralls && nyc report --reporter=lcov"
   },
