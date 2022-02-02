@@ -18,13 +18,14 @@ jobs:
       uses: actions/setup-node@v2
       with: 
         node-version: "16.x"
-        mongo_db_url: ${{secrets.MONGO_DB_URL}}
 
     - name: Install dependencies
       run: npm install
 
     - name: Run test
       run: npm test
+      env:
+          MONGO_DB_URL: ${{secrets.MONGO_DB_URL}}
       
   deploy:
       runs-on: ubuntu-latest
