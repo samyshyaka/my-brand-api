@@ -18,7 +18,7 @@ jobs:
       uses: actions/setup-node@v2
       with: 
         node-version: "16.x"
-        MONGO_DB_URL: ${{secrets.MONGO_DB_URL}}
+        mongo_db_url: ${{secrets.MONGO_DB_URL}}
 
     - name: Install dependencies
       run: npm install
