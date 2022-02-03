@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "type": "module",
   "engines": {
-    "node": "16.13.1"
+    "node": "16.13.2"
   },
   "scripts": {
     "start": "node src/app.js",
