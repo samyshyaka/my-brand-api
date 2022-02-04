@@ -17,16 +17,23 @@ const getCommentsHandler = async(req,res) => {
 }
 
 const getSpecificCommentHandler = async(req,res) => {
-    try {
-        const comment = await Comment.findById(req.params.id)
-        if (comment == null) {
-            res.status(404).send({
+
+    const comment = await Comment.findById(req.params.id)
+    console.log(comment);
+        if (!comment) {
+            return res.status(404).send({
                 status : "fail",
                 code: 404,
                 message : "comment not found"
             })
         }
-        res.status(200).json({
+        
+         
+    try {
+        
+
+        
+        return res.status(200).json({
             status : "success",
             code: 200,
             data : {
@@ -34,10 +41,10 @@ const getSpecificCommentHandler = async(req,res) => {
              }
         }).end();
     }catch(err){
-        res.status(500).send({
+        return res.status(500).send({
             status : "error",
             code: 500,
-            message : "unable to communicate with the database"
+            message : err
         })
     }
 }
@@ -109,24 +116,24 @@ const putCommentHandler = async(req, res) => {
 const deleteCommentHandler = async(req, res) => {
     try{
         const comment = await Comment.findById(req.params.id);
-        if (comment == null) {
-            res.status(404).send({
+        if (!comment) {
+            return res.status(404).send({
                 status : "fail",
                 code: 404,
                 message : "comment not found"
             })
         }
         const c1 = await comment.remove()
-        res.status(200).send({
+        return res.status(200).send({
             status : "success",
             code: 200,
             message : "comment deleted"
         })
     }catch(err){
-        res.status(500).send({
+        return res.status(500).send({
             status : "error",
             code: 500,
-            message : "unable to communicate with the database"
+            message : err
         })
     }
 }
